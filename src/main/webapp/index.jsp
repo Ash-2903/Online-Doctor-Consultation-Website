@@ -25,7 +25,7 @@
   </head>
   
   
-  <body>
+  <body style="background-color : #F5F5F5">
     
     
     <!-- ======================= FIXED NAVIGATION BAR ===========================  -->
