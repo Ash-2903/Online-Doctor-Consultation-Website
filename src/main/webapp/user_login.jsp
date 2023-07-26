@@ -65,7 +65,7 @@
                   </div>
 
                   <a class="small text-muted" style="text-decoration: none" href="#!">Forgot password?</a>
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="user_register.jsp"
                       style="color: #393f81;">Register here</a></p>
                   <a href="#!" class="small text-muted">Terms of use.</a>
                   <a href="#!" class="small text-muted">Privacy policy</a>

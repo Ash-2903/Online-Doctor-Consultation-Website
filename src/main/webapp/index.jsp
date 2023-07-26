@@ -1,3 +1,6 @@
+<%@page import = "com.db.DBConnect" %>
+<%@page import = "java.sql.Connection" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
@@ -31,6 +34,13 @@
     <!-- ======================= FIXED NAVIGATION BAR ===========================  -->
     
 	<%@include file="components/navbar.jsp" %> 
+	
+	
+	<!-- ======================= SQL CONNECTION ===========================  -->
+	
+	<% Connection conn = DBConnect.getConn(); 
+	out.print(conn);
+	%>
 
 <main>
 
