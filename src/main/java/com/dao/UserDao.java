@@ -19,6 +19,7 @@ public class UserDao {
 		
 		try {
 			
+			/* Code to add data to SQL Table */
 			String sql = "insert into user_details(full_name, email, password) values(?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, u.getFullName());

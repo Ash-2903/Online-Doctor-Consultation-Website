@@ -30,7 +30,7 @@
       ></a>
 
       <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-outline-light btn-floating m-1" target="_blank" href="https://github.com/Ash-2903/Online-Doctor-Consultation-Website" role="button"
         ><i class="fab fa-github"></i
       ></a>
     </section>
@@ -53,9 +53,11 @@
           <!--Grid column-->
           <div class="col-auto">
             <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4">
-              Subscribe
-            </button>
+            <a href="#">
+	            <button type="submit" class="btn btn-outline-light mb-4">
+	              Register
+	            </button>
+            </a>
           </div>
           <!--Grid column-->
         </div>

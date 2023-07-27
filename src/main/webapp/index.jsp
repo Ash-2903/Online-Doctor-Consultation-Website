@@ -38,9 +38,9 @@
 	
 	<!-- ======================= SQL CONNECTION ===========================  -->
 	
-	<% Connection conn = DBConnect.getConn(); 
+	<%-- <% Connection conn = DBConnect.getConn(); 
 	out.print(conn);
-	%>
+	%> --%>
 
 <main>
 
@@ -129,7 +129,7 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
+        <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It will blow your mind.</span></h2>
         <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
       </div>
       <div class="col-md-5">
@@ -141,7 +141,7 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
+        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it is that good. <span class="text-body-secondary">See for yourself.</span></h2>
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
       <div class="col-md-5 order-md-1">
