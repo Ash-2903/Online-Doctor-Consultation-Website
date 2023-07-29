@@ -7,8 +7,15 @@ public class User {
 	private String email;
 	private String password;
 	
+	
+	
 	/* constructor */
 	
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public User(String fullName, String email, String password) {
 		super();
 		this.fullName = fullName;
