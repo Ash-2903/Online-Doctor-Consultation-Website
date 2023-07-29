@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form>
+                <form method="post" action="userLogin">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -49,19 +50,29 @@
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                  
+                  <c:if test="${not empty succMsg }">
+		                	<p class = " small text-center text-success fs-5">${succMsg}</p>
+		                	<c:remove var="succMsg" scope="session"/>
+		          </c:if>
+		                
+		          <c:if test="${not empty errorMsg }">
+		                	<p class = " small text-center text-danger fs-5">${errorMsg}</p>
+		                	<c:remove var="errorMsg" scope="session"/>
+		          </c:if>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example17">Email address</label>
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" name="email" />
+                    <label class="form-label">Email address</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example27">Password</label>
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" name="password" />
+                    <label class="form-label">Password</label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                   </div>
 
                   <a class="small text-muted" style="text-decoration: none" href="#!">Forgot password?</a>

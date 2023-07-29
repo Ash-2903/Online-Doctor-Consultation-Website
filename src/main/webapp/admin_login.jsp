@@ -29,7 +29,6 @@
 	
 	
 	
-	
 	<section class="vh-100" >
 	  <div class="container py-5 h-100">
 	    <div class="row d-flex justify-content-center align-items-center h-100">
@@ -53,6 +52,11 @@
 	                  </div>
 	
 	                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+	                  
+	                  <c:if test="${not empty succMsg }">
+		                	<p class = " small text-center text-success fs-5">${succMsg}</p>
+		                	<c:remove var="succMsg" scope="session"/>
+		               </c:if>
 		                
 		               <c:if test="${not empty errorMsg }">
 		                	<p class = " small text-center text-danger fs-5">${errorMsg}</p>
