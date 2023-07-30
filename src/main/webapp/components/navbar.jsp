@@ -15,6 +15,7 @@
     </button>
     
 
+    <% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %>
     
     <c:if test="${empty userObject }">
     

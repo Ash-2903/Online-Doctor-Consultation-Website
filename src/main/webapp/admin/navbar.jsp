@@ -21,7 +21,7 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link active" href="#" style="color:black">Doctor</a>
+          <a class="nav-link active" href="doctor.jsp" style="color:black">Doctor</a>
         </li>
         
         <li class="nav-item">

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,6 +29,16 @@
 
 	
 	<h1 class="text-center p-5">Admin's Dashboard</h1>
+	
+	<c:if test="${not empty succMsg }">
+		     <p class = " small text-center text-success fs-5">${succMsg}</p>
+		     <c:remove var="succMsg" scope="session"/>
+	</c:if>
+		                
+	<c:if test="${not empty errorMsg }">
+		      <p class = " small text-center text-danger fs-5">${errorMsg}</p>
+		      <c:remove var="errorMsg" scope="session"/>
+	</c:if>
 	
 	<div class="row t-5 m-auto">
 	
@@ -66,7 +78,7 @@
 	  </div>
 	  
 	  <div class="col-md-5 mx-auto">
-	    <div class="card paint-card p-5">
+	    <div class="card paint-card p-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
 	      <div class="card-body text-center">
 	      	<i class="fa-solid fa-calendar-check fa-2xl"></i><hr>
 	        <h5 class="card-title">Specialists</h5>
@@ -78,6 +90,43 @@
 	</div>
 	
 	<br><br><br>
+	
+	
+	
+	
+
+
+	<!-- Specialist Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">New Specialist</h5>
+	        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <form action="../addSpecialist" method="post">
+	        	<div class="form-group">
+	        		<label class="mb-2">Enter Specialist Name</label>
+	        		<input type="text" class="form-control" name="spName">
+	        	</div>
+	        	<div class="text-center mt-3">
+	        		<button type="submit" class="btn btn-primary">Submit</button>
+	        	</div>
+	        	
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	        
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	
 	
 	<%@include file="../components/footer.jsp" %>
 	

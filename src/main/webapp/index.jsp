@@ -17,6 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <title>Cure Quest</title>
+    
+    <%-- <% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %>  --%>
 
 	<!-- Bootstrap links -->
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
@@ -32,7 +34,7 @@
   
   <body style="background-color : #F5F5F5">
   
-  <%-- <% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %> --%>
+ 
     
     
     <!-- ======================= FIXED NAVIGATION BAR ===========================  -->
