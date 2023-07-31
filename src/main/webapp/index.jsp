@@ -38,8 +38,9 @@
     
     
     <!-- ======================= FIXED NAVIGATION BAR ===========================  -->
-    
+	
 	<%@include file="components/navbar.jsp" %> 
+	
 	
 	
 	<!-- ======================= SQL CONNECTION ===========================  -->

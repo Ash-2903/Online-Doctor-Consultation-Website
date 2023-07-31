@@ -2,7 +2,7 @@ package com.entity;
 
 public class Doctor {
 
-	private String id;
+	private int id;
 	private String fullName;
 	private String dob;
 	private String qualification;
@@ -30,12 +30,12 @@ public class Doctor {
 	}
 
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

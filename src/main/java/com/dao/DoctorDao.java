@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.entity.Doctor;
+import com.entity.User;
 
 public class DoctorDao {
 
@@ -57,7 +58,7 @@ public class DoctorDao {
 			
 			while(rs.next()) {
 				d = new Doctor();
-				d.setId(rs.getString(1));
+				d.setId(rs.getInt(1));
 				d.setFullName(rs.getString(2));
 				d.setDob(rs.getString(3));
 				d.setQualification(rs.getString(4));
@@ -76,4 +77,48 @@ public class DoctorDao {
 		
 	}
 	
+	public Doctor login(String email, String password) {
+		Doctor d = null;
+		
+		try {
+			
+			String sql =  "select * from doctor_details where email = ? and password = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, email);
+			ps.setString(2,password);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				d = new Doctor();
+				d.setId(rs.getInt(1));
+				d.setFullName(rs.getString(2));
+				d.setDob(rs.getString(3));
+				d.setQualification(rs.getString(4));
+				d.setSpecialization(rs.getString(5));
+				d.setEmail(rs.getString(6));
+				d.setPhno(rs.getString(7));
+				d.setPassword(rs.getString(8));
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+
+		return d;
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+

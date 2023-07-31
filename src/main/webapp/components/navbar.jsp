@@ -17,6 +17,9 @@
 
     <% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %>
     
+    
+    
+    
     <c:if test="${empty userObject }">
     
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -37,6 +40,8 @@
     	</div>
     	
     </c:if>
+    
+    
     
     <c:if test = "${not empty userObject }">
     
@@ -60,8 +65,7 @@
 			            ${userObject.fullName}
 			          </a>
 			          <ul class="dropdown-menu">
-			          	<li><a class="dropdown-item" href="#">Reset Password</a></li>
-			          	
+			  
 			            <li><a class="dropdown-item" href="userLogout">Logout</a></li>
 			            
 			          </ul>
