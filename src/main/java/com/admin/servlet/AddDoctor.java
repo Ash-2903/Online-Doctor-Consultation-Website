@@ -1,5 +1,5 @@
 package com.admin.servlet;
-
+import java.util.*;
 import java.io.IOException;
 
 import com.dao.DoctorDao;
@@ -36,6 +36,8 @@ public class AddDoctor extends HttpServlet {
 			boolean f = dao.registerDoctor(doc);
 			
 			HttpSession session = req.getSession();
+			
+			
 			
 			if(f) {
 				session.setAttribute("succMsg", "Doctor added");

@@ -1,0 +1,167 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ page isELIgnored="false" %>
+<%@page import="com.dao.DoctorDao"%>
+<%@page import="com.db.DBConnect"%>
+<%@page import="com.entity.Doctor"%>
+<%@page import="java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Make Appointments</title>
+<%@include file="components/common_css.jsp" %>
+<style>
+	.paint-card {
+		box-shadow : 0 0 2px 0 rgba(0, 0, 0.3);
+	}
+	.bgImg {
+		background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/apmt_bg.jpg");
+		height : 20vh;
+		width: 100%;
+		bachground-size: cover;
+		background-repeat: no-repeat;
+	}
+</style>
+</head>
+<body style="background-color : #F5F5F5">	
+
+	<%@include file="components/navbar.jsp" %>
+	
+	<div class="container-fulid bgImg p-5">
+		<p class="text-center fs-2 text-white"></p>
+	</div>
+	<div class="text-center container p-3 mt-5 mb-5">
+		<div class="row">
+			
+
+			<div class="col-md-8">
+				<div class="card paint-card">
+					<div class="card-body">
+						<h5 class="text-center fs-3 p-4">User Appointment</h5>
+						<c:if test="${not empty errorMsg}">
+							<p class="fs-4 text-center text-danger">${errorMsg}</p>
+							<c:remove var="errorMsg" scope="session" />
+						</c:if>
+						<c:if test="${not empty succMsg}">
+							<p class=" fs-4 text-center text-success">${succMsg}</p>
+							<c:remove var="succMsg" scope="session" />
+						</c:if>
+						
+						<form class="row g-3" action="appAppointment" method="post">
+
+							<input type="hidden" name="userid" value="${userObject.id }">
+
+							<div class="col-md-6">
+								<label for="inputEmail4" class="form-label">Full Name</label> 
+								<input placeholder="Full Name" required type="text" class="form-control" name="fullname">
+							</div>
+
+							<div class="col-md-6 ">
+								<label class="form-label">Gender</label> <select class="form-control" name="gender"
+									required>
+									<option value="">--select--</option>
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+									<option value="female">Others</option>
+								</select>
+							</div>
+
+							<div class="col-md-6">
+								<label for="inputEmail4" class="form-label">Age</label> <input
+									placeholder="age" required type="number" class="form-control" name="age">
+							</div>
+
+							<div class="col-md-6">
+								<label for="inputEmail4" class="form-label">Appointment
+									Date</label> <input type="date" class="form-control" required
+									placeholder="Date" name="appoint_date">
+							</div>
+
+							<div class="col-md-6">
+								<label for="inputEmail4" class="form-label">Email</label> <input
+									placeholder="youremail@email.com" required type="email" class="form-control" name="email">
+							</div>
+
+							<div class="col-md-6">
+								<label for="inputEmail4" class="form-label">Phone No</label> <input
+									placeholder="1234567890" maxlength="10" required type="number" class="form-control"
+									name="phno">
+							</div>
+
+
+							<div class="col-md-6">
+								<label for="inputEmail4" class="form-label">Diseases</label> <input
+									placeholder="Describe your sickness" required type="text" class="form-control" name="diseases">
+							</div>
+
+							<div class="col-md-6">
+								<label for="inputPassword4" class="form-label">Doctor</label> <select
+									required class="form-control" name="doct">
+									<option value="">--select--</option>
+
+									<%
+										DoctorDao dao = new DoctorDao(DBConnect.getConn());
+										List<Doctor> list = dao.getAllDocs();
+										for (Doctor d : list) {
+									%>
+									<option value="<%=d.getId()%>"><%=d.getFullName()%> (<%=d.getSpecialization()%>)
+									</option>
+									<%
+									}
+									%>
+
+								</select>
+							</div>
+
+							<div class="col-sm-12">
+								<label>Full Address</label>
+								<textarea required name="address" class="form-control" rows="3"
+									cols=""></textarea>
+							</div>
+
+							<c:if test="${empty userObject }">
+								<a href="user_login.jsp" class="col-md-6 offset-md-3 btn btn-primary">Submit</a>
+							</c:if>
+
+							<c:if test="${not empty userObject }">
+								<button class="col-md-6 offset-md-3 btn btn-primary">Submit</button>
+							</c:if>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+				<div class="p-5">
+					<div class="card paint-card" style="width: 18rem;">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="card-link">Card link</a>
+					    <a href="#" class="card-link">Another link</a>
+					  </div>
+					 </div>
+				 </div>
+				 <div class="p-5">
+					 <div class="card paint-card" style="width: 18rem;">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="card-link">Card link</a>
+					    <a href="#" class="card-link">Another link</a>
+					  </div>
+					 </div>
+				 </div> 
+			</div>
+			
+		</div>
+
+	</div>
+	<%@include file="components/footer.jsp"%>
+
+</body>
+</html>

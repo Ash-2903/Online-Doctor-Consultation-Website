@@ -20,9 +20,15 @@
 	}
 </style>
 </head>
-<body>
+<body style="background-color : #F5F5F5">
 
 	<%@include file="navbar.jsp" %>	
+	
+	<% 
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		if(session.getAttribute("adminObject")==null)
+		response.sendRedirect("../admin_login.jsp");
+	%>
 
 	<div class="container-fluid p-3">
 		<div class="row">
@@ -111,7 +117,7 @@
 									List<Doctor> list2 = dao2.getAllDocs();
 									
 									for(Doctor d : list2) {
-										System.out.println(d.getFullName());
+										
 								%>
 								<tr>
 									<td><%= d.getFullName() %></td>

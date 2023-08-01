@@ -28,6 +28,16 @@
     <!-- Custom styles for this template -->
     <link href="css/styles.css" rel="stylesheet">
     
+    <style>
+    	.bgImg {
+			background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/apmt_bg.jpg");
+			height : 100%;
+			width: 100%;
+			bachground-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+    </style>
+    
     
   </head>
   
@@ -51,7 +61,7 @@
 
 <main>
 
-	<!-- ======================= CAROUSEL ===========================  -->
+	<!-- ========================== CAROUSEL ===========================  -->
 
   <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="light">
     <div class="carousel-indicators">
@@ -60,13 +70,13 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      <div class="carousel-item active ">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
         <div class="container">
           <div class="carousel-caption text-start">
             <h1>Example headline.</h1>
             <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign upp</a></p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up</a></p>
           </div>
         </div>
       </div>

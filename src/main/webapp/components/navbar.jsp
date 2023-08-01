@@ -20,7 +20,7 @@
     
     
     
-    <c:if test="${empty userObject }">
+    <c:if test="${ empty userObject }">
     
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
       		<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -31,7 +31,7 @@
 		          <a class="nav-link active" aria-current="page" href="doctor_login.jsp">DOCTOR</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="#">APPOINTMENT</a>
+		          <a class="nav-link active" aria-current="page" href="user_appointment.jsp">APPOINTMENT</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link active" aria-current="page" href="user_login.jsp">USER</a>
@@ -50,7 +50,7 @@
     	<div class="collapse navbar-collapse" id="navbarSupportedContent">
       		<ul class="navbar-nav md-auto mb-2 mb-lg-0">
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="#">APPOINTMENT</a>
+		          <a class="nav-link active" aria-current="page" href="user_appointment.jsp">APPOINTMENT</a>
 		        </li>
 		        <li class="nav-item">
 		          <a class="nav-link active" aria-current="page" href="#">VIEW APPOINTMENTS</a>
