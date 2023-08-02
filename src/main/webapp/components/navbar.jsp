@@ -53,9 +53,9 @@
 		          <a class="nav-link active" aria-current="page" href="user_appointment.jsp">APPOINTMENT</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="#">VIEW APPOINTMENTS</a>
+		          <a class="nav-link active" aria-current="page" href="view_docs.jsp">VIEW DOCTORS</a>
 		        </li>
-		        </ul>
+		    </ul>
     	
     
 		        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

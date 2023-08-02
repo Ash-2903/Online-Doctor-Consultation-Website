@@ -7,11 +7,11 @@ public class Appointment {
 	private String fullName;
 	private String gender;
 	private String age;
-	private String appoinDate;
+	private String appoinTime;
 	private String email;
 	private String phNo;
 	private String diseases;
-	private int doctorId;
+	private int spId;
 	private String address;
 	private String status;
 	
@@ -22,18 +22,18 @@ public class Appointment {
 	}
 
 
-	public Appointment(int userId, String fullName, String gender, String age, String appoinDate, String email,
-			String phNo, String diseases, int doctorId, String address, String status) {
+	public Appointment(int userId, String fullName, String gender, String age, String appoinTime, String email,
+			String phNo, String diseases, int spId, String address, String status) {
 		super();
 		this.userId = userId;
 		this.fullName = fullName;
 		this.gender = gender;
 		this.age = age;
-		this.appoinDate = appoinDate;
+		this.appoinTime = appoinTime;
 		this.email = email;
 		this.phNo = phNo;
 		this.diseases = diseases;
-		this.doctorId = doctorId;
+		this.spId = spId;
 		this.address = address;
 		this.status = status;
 	}
@@ -89,13 +89,13 @@ public class Appointment {
 	}
 
 
-	public String getAppoinDate() {
-		return appoinDate;
+	public String getAppoinTime() {
+		return appoinTime;
 	}
 
 
-	public void setAppoinDate(String appoinDate) {
-		this.appoinDate = appoinDate;
+	public void setAppoinTime(String appoinTime) {
+		this.appoinTime = appoinTime;
 	}
 
 
@@ -129,13 +129,13 @@ public class Appointment {
 	}
 
 
-	public int getDoctorId() {
-		return doctorId;
+	public int getSpId() {
+		return spId;
 	}
 
 
-	public void setDoctorId(int doctorId) {
-		this.doctorId = doctorId;
+	public void setSpId(int spId) {
+		this.spId = spId;
 	}
 
 
@@ -157,6 +157,9 @@ public class Appointment {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+
+	
 	
 	
 	

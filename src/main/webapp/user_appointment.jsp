@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page isELIgnored="false" %>
+<%@page import="com.dao.SpecialistDao"%>
+<%@page import="com.entity.Specialist"%>
 <%@page import="com.dao.DoctorDao"%>
 <%@page import="com.db.DBConnect"%>
 <%@page import="com.entity.Doctor"%>
@@ -49,9 +51,9 @@
 							<c:remove var="succMsg" scope="session" />
 						</c:if>
 						
-						<form class="row g-3" action="appAppointment" method="post">
+						<form class="row g-3" action="addAppointment" method="post">
 
-							<input type="hidden" name="userid" value="${userObject.id }">
+							<input type="hidden" name="userid" value="${userObject.id}">
 
 							<div class="col-md-6">
 								<label for="inputEmail4" class="form-label">Full Name</label> 
@@ -75,8 +77,17 @@
 
 							<div class="col-md-6">
 								<label for="inputEmail4" class="form-label">Appointment
-									Date</label> <input type="date" class="form-control" required
-									placeholder="Date" name="appoint_date">
+									Time</label> <select
+									required class="form-control" name="time">
+									<option value="">--select--</option>
+									<option value="8">8 AM - 10 AM</option>
+									<option value="10">10 AM - 12 PM</option>
+									<option value="12">12 PM - 3 PM</option>
+									<option value="15">3 PM - 5 PM</option>
+									<option value="17">5 PM - 6 PM</option>
+									<option value="19">7 PM - 9 PM</option>
+									<option value="21">9 PM - 12 AM</option>
+									</select>
 							</div>
 
 							<div class="col-md-6">
@@ -98,22 +109,23 @@
 
 							<div class="col-md-6">
 								<label for="inputPassword4" class="form-label">Doctor</label> <select
-									required class="form-control" name="doct">
+									required class="form-control" name="specialist">
 									<option value="">--select--</option>
 
-									<%
-										DoctorDao dao = new DoctorDao(DBConnect.getConn());
-										List<Doctor> list = dao.getAllDocs();
-										for (Doctor d : list) {
+									<% 
+										SpecialistDao sp = new SpecialistDao(DBConnect.getConn());
+										List<Specialist> list = sp.getAllSpecialist();
+										for(Specialist s:list)  {
 									%>
-									<option value="<%=d.getId()%>"><%=d.getFullName()%> (<%=d.getSpecialization()%>)
-									</option>
+									<option value="<%=s.getId()%>"><%= s.getSpecialistName() %> </option>
+									
 									<%
 									}
 									%>
 
 								</select>
 							</div>
+
 
 							<div class="col-sm-12">
 								<label>Full Address</label>
@@ -126,7 +138,7 @@
 							</c:if>
 
 							<c:if test="${not empty userObject }">
-								<button class="col-md-6 offset-md-3 btn btn-primary">Submit</button>
+								<button type="submit" class="col-md-6 offset-md-3 btn btn-primary">Submit</button>
 							</c:if>
 						</form>
 					</div>
