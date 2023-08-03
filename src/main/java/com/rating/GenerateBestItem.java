@@ -1,6 +1,12 @@
 package com.rating;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.dao.RatingDao;
+import com.db.DBConnect;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,21 +16,37 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/generateBestDoc")
 public class GenerateBestItem extends HttpServlet {
+	
+	/* private Connection conn; */
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		/*
-		 * int userId = Integer.parseInt(req.getParameter("userId")); int docId =
-		 * Integer.parseInt(req.getParameter("docId"));
-		 */
-		String rating = (req.getParameter("rating"));
-		String userId = req.getParameter("userId");
-		String docId = req.getParameter("docId");
+		ItemBasedCollaborativeFiltering cf = new ItemBasedCollaborativeFiltering();
 		
-		System.out.println("userid : " + userId + " doctorId " + docId + "rating : " + rating);
+		try {
+			
+			String sql = "select * from rating";
+			
+			RatingDao dao = new RatingDao(DBConnect.getConn());
+			PreparedStatement ps = DBConnect.getConn().prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				String docName = rs.getString(2);
+				String userId =Integer.toString(rs.getInt(3));
+				double rating = rs.getInt(4);
+				System.out.println("Name : " + docName + " userId : " + userId + " rating " + rating);
+				cf.addRating(docName, userId, rating);	
+			}
+			
+			String bestItem = cf.getBestItem();
+	        System.out.println("The best item is: " + bestItem);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 		
-		resp.sendRedirect("index.jsp");
 		
 	}
 

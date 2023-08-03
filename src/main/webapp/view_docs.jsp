@@ -23,6 +23,33 @@
 </head>
 <body style="background-color : #F5F5F5">	
 	<%@include file="components/navbar.jsp"%>
+	
+	
+	<div class="modal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p>Modal body text goes here.</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	
+	
+	
+	
+	
 	<div class="container-fluid p-3">
 		<div class="row">
 
@@ -56,19 +83,23 @@
 								DoctorDao dao2 = new DoctorDao(DBConnect.getConn());
 								List<Doctor> list2 = dao2.getAllDocs();
 								for (Doctor d : list2) {
+									/* System.out.println(d.getId); */
+									
 								%>
 								<tr>
+									<%-- <td><%=d.getId()%></td> --%>
 									<td><%=d.getFullName()%></td>
 									<td><%=d.getDob()%></td>
 									<td><%=d.getQualification()%></td>
 									<td><%=d.getSpecialization()%></td>
 									<td><%=d.getEmail()%></td>
 									<td><%=d.getPhno()%></td>
+									
 									<td>
-										<form action="generateBestDoc" method="post">
-											<input type="hidden" name="userId" value="${userObject.id }">
-											<%-- <% System.out.println(userObject.id); %> --%>
-											<input type="hidden" name="docId" value="${d.getId }">
+										
+										<form action="sumbitResponse" method="post">
+											<input type="hidden" name="userId" value="${userObject.id}">
+											<input type="hidden" name="docId" value="<%=d.getFullName()%>">
 											<select class="form-control input-group mx-auto" name="rating" required>
 												<option value="">rate</option>
 												<option value="5">5</option>
@@ -82,7 +113,7 @@
 									</td>
 								</tr>
 								<%
-								}
+									}
 								%>
 							</tbody>
 						</table>

@@ -55,6 +55,9 @@
 		        <li class="nav-item">
 		          <a class="nav-link active" aria-current="page" href="view_docs.jsp">VIEW DOCTORS</a>
 		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="view_appointment.jsp">VIEW APPOINTMENT</a>
+		        </li>
 		    </ul>
     	
     
