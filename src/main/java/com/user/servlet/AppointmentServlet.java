@@ -41,38 +41,31 @@ public class AppointmentServlet extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		
-		
-		
 		ItemBasedCollaborativeFiltering cf = new ItemBasedCollaborativeFiltering();
 		
 		try {
 			
-			String sql = "select * from rating";
-			
-			
+			String sql = "select * from rating where sp_id = ?";
+
 			PreparedStatement ps = DBConnect.getConn().prepareStatement(sql);
+			
+			ps.setInt(1, sp_id);
+			System.out.println(sp_id);
+			
 			ResultSet rs = ps.executeQuery();
+			System.out.println(rs.toString());
 			
 			while(rs.next()) {
 				String docName = rs.getString(2);
-				String userName =Integer.toString(rs.getInt(3));
+				String userName = Integer.toString(rs.getInt(3));
 				double rating = rs.getInt(4);
 				System.out.println("Name : " + docName + " userId : " + userName + " rating " + rating);
 				cf.addRating(docName, userName, rating);	
 			}
 			
 			String bestItem = cf.getBestItem();
-			session.setAttribute("doctor_name", bestItem);
 	        System.out.println("The best item is: " + bestItem);
 	        session.setAttribute("doc_name", bestItem);
-	        
-			/*
-			 * String sql2 = "INSERT into appointment (doc_name) value ( ? )";
-			 * ps.setString(13, bestItem); PreparedStatement ps2 =
-			 * DBConnect.getConn().prepareStatement(sql2); int n = ps2.executeUpdate();
-			 * 
-			 * if(n == 1) { System.out.println("doc added"); }
-			 */
 			
 		} catch(Exception e) {
 			e.printStackTrace();

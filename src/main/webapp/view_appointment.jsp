@@ -30,6 +30,13 @@
 </head>
 
 <body style="background-color : #F5F5F5">
+
+	<% 
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		if(session.getAttribute("userObject")==null)
+		response.sendRedirect("user_login.jsp");
+	%>
+
 	<%@include file="components/navbar.jsp" %>
 	
 	<div class="container-fulid bgImg p-5">
@@ -93,7 +100,10 @@
 									<td><%=rs.getString(8)%></td>
 									<td><%=rs.getString(9)%></td>
 									<td>
-										<button  class="btn btn-primary">Start Conversation</button>
+										<form action="video/video.html" method="post">
+											<button  class="btn btn-primary">Start Conversation</button>
+										</form>
+										
 									</td>
 									
 								</tr>

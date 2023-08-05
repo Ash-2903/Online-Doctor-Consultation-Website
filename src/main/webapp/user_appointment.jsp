@@ -80,13 +80,13 @@
 									Time</label> <select
 									required class="form-control" name="time">
 									<option value="">--select--</option>
-									<option value="8">8 AM - 10 AM</option>
-									<option value="10">10 AM - 12 PM</option>
-									<option value="12">12 PM - 3 PM</option>
-									<option value="15">3 PM - 5 PM</option>
-									<option value="17">5 PM - 6 PM</option>
-									<option value="19">7 PM - 9 PM</option>
-									<option value="21">9 PM - 12 AM</option>
+									<option value="8 AM - 10 AM">8 AM - 10 AM</option>
+									<option value="10 AM - 12 PM">10 AM - 12 PM</option>
+									<option value="12 PM - 3 PM">12 PM - 3 PM</option>
+									<option value="3 PM - 5 PM">3 PM - 5 PM</option>
+									<option value="5 PM - 6 PM">5 PM - 6 PM</option>
+									<option value="7 PM - 9 PM">7 PM - 9 PM</option>
+									<option value="9 PM - 12 AM">9 PM - 12 AM</option>
 									</select>
 							</div>
 

@@ -17,6 +17,7 @@ public class ItemBasedCollaborativeFiltering {
     }
 
     // Method to add a rating for an item
+    
     @SuppressWarnings("unchecked")
 	public void addRating(String item, String user, double rating) {
 		/*

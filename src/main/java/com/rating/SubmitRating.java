@@ -1,6 +1,9 @@
 package com.rating;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.dao.RatingDao;
 import com.db.DBConnect;
@@ -21,16 +24,12 @@ public class SubmitRating extends HttpServlet {
 		
 		int userId = Integer.parseInt(req.getParameter("userId")); 
 		String docName = req.getParameter("docId");
-		/* int docId = Integer.parseInt(req.getParameter("docId")); */
 		int rating = Integer.parseInt(req.getParameter("rating"));
 
-		
-		
-		System.out.println("userid : " + userId + " doctorId : " + docName + " rating : " + rating);
-		
-		RatingDao rd = new RatingDao(DBConnect.getConn());
-		Rating rt = new Rating(rating, userId, docName);
-		boolean f = rd.addRating(rt);
+		 RatingDao rd = new RatingDao(DBConnect.getConn());
+		 String sp_id = rd.getSpecilaistId(docName);
+	     Rating rt = new Rating(rating, userId, docName, sp_id);
+	     boolean f = rd.addRatingToDb(rt);
 		
 		HttpSession session = req.getSession();
 		
@@ -41,7 +40,6 @@ public class SubmitRating extends HttpServlet {
 			resp.sendRedirect("view_docs.jsp");
 		}
 		
-	
 	}
 
 	

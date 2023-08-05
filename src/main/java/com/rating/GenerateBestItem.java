@@ -25,11 +25,11 @@ public class GenerateBestItem extends HttpServlet {
 		ItemBasedCollaborativeFiltering cf = new ItemBasedCollaborativeFiltering();
 		
 		try {
-			
-			String sql = "select * from rating";
-			
 			RatingDao dao = new RatingDao(DBConnect.getConn());
+			
+			String sql = "select * from rating where sp_id = ?";
 			PreparedStatement ps = DBConnect.getConn().prepareStatement(sql);
+			ps.setString(1,"nope");
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -49,7 +49,5 @@ public class GenerateBestItem extends HttpServlet {
 		
 		
 	}
-
-	
 	
 }
