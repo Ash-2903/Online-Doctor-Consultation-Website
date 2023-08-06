@@ -83,7 +83,6 @@
 								String st = "Select * FROM appointment WHERE user_id = " + userId ;
 								PreparedStatement ps = DBConnect.getConn().prepareStatement(st);
 								ResultSet rs = ps.executeQuery();
-								System.out.println(st);
 								while(rs.next()) {
 									/* System.out.println(d.getId); */
 									
@@ -91,7 +90,7 @@
 								<tr>
 									<%-- <td><%=d.getId()%></td> --%>
 									<%-- <td><%=${doc_name}%></td> --%>
-									<td>${doc_name}</td>
+									<td><%=rs.getString(13)%></td>
 									<td><%=rs.getString(3)%></td>
 									<td><%=rs.getString(4)%></td>
 									<td><%=rs.getString(5)%></td>
@@ -119,12 +118,6 @@
 
 		</div>
 	</div>	
-	
-	
-	
-	
-	
-	
 	
 </body>
 </html>

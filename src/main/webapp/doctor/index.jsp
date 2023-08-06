@@ -8,6 +8,10 @@
 <%@page import="com.db.DBConnect" %>
 <%@page import="com.entity.Appointment" %>
 <%@page import="com.entity.User" %>
+<%@page import="com.entity.Doctor" %>
+<%@page import="com.dao.DoctorDao" %>
+<%@page import="com.dao.AppointmentDao" %>
+<%@page import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +41,7 @@
 		response.sendRedirect("../doctor_login.jsp");
 	%>
 
-	<%@include file="../components/navbar.jsp" %>
+	<%@include file="navbar.jsp" %>
 	
 	<div class="container-fulid bgImg p-5">
 		<p class="text-center fs-2 text-white"></p>
@@ -73,28 +77,27 @@
 							
 								<%
 								
-								String st = "Select * FROM appointment";
-								PreparedStatement ps = DBConnect.getConn().prepareStatement(st);
-								ResultSet rs = ps.executeQuery();
-								while(rs.next()) {
+								AppointmentDao sp = new AppointmentDao(DBConnect.getConn());
+								Doctor doc = (Doctor) session.getAttribute("doctorObject");
+								List<Appointment> list = sp.getAllAppointmentsByLoginDoctor( doc );
+								
+								for (Appointment a : list) {
 									/* System.out.println(d.getId); */
 									
 								%>
 								<tr>
 									<%-- <td><%=d.getId()%></td> --%>
 									<%-- <td><%=${doc_name}%></td> --%>
-									<td><%=rs.getString(3)%></td>
-									<td><%=rs.getString(4)%></td>
-									<td><%=rs.getString(5)%></td>
-									<td><%=rs.getString(6)%></td>
-									<td><%=rs.getString(7)%></td>
-									<td><%=rs.getString(8)%></td>
-									<td><%=rs.getString(9)%></td>
+									<td><%=a.getFullName()%></td>
+									<td><%=a.getGender()%></td>
+									<td><%=a.getAge()%></td>
+									<td><%=a.getAppoinTime()%></td>
+									<td><%=a.getEmail()%></td>
+									<td><%=a.getPhNo()%></td>
+									<td><%=a.getDiseases()%></td>
 									<td>
-										<button type="button" class="openInputBtn2 btn btn-danger" value=<%= rs.getString(1) %> >Decline</button>
-									    
-										<button type="button" class="openInputBtn1 btn btn-success" value=<%= rs.getString(1) %> >Accept</button>
-									   
+										  
+										<button type="button" class="openInputBtn1 btn btn-success" name = "comment" >Comment</button>
 												
 									</td>
 									<td>

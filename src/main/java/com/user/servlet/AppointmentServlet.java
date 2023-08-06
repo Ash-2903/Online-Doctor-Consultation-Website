@@ -33,13 +33,10 @@ public class AppointmentServlet extends HttpServlet {
 		String disease = req.getParameter("diseases");
 		int sp_id = Integer.parseInt(req.getParameter("specialist"));
 		String address = req.getParameter("address");
+		String bestItem = "na";
 		
 		
 		
-		Appointment ap = new Appointment(userId, fullName, gender , age , appoint_time, email, phno, disease, sp_id, address, "Pending" );
-		AppointmentDao dao = new AppointmentDao(DBConnect.getConn());
-		
-		HttpSession session = req.getSession();
 		
 		ItemBasedCollaborativeFiltering cf = new ItemBasedCollaborativeFiltering();
 		
@@ -50,26 +47,33 @@ public class AppointmentServlet extends HttpServlet {
 			PreparedStatement ps = DBConnect.getConn().prepareStatement(sql);
 			
 			ps.setInt(1, sp_id);
-			System.out.println(sp_id);
+			// System.out.println(sp_id);
 			
 			ResultSet rs = ps.executeQuery();
-			System.out.println(rs.toString());
 			
 			while(rs.next()) {
 				String docName = rs.getString(2);
 				String userName = Integer.toString(rs.getInt(3));
 				double rating = rs.getInt(4);
-				System.out.println("Name : " + docName + " userId : " + userName + " rating " + rating);
+				/*
+				 * System.out.println("Name : " + docName + " userId : " + userName + " rating "
+				 * + rating);
+				 */
 				cf.addRating(docName, userName, rating);	
 			}
 			
-			String bestItem = cf.getBestItem();
-	        System.out.println("The best item is: " + bestItem);
-	        session.setAttribute("doc_name", bestItem);
+			bestItem = cf.getBestItem();
+	        // System.out.println("The best item is: " + bestItem);
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		// System.out.println("The best item is (printing outside try/catch : " + bestItem);
+		Appointment ap = new Appointment(userId, fullName, gender , age , appoint_time, email, phno, disease, sp_id, address, "Pending" , bestItem);
+		AppointmentDao dao = new AppointmentDao(DBConnect.getConn());
+		
+		HttpSession session = req.getSession();
+		
 		
 		if(dao.addAppointment(ap)) {
 			session.setAttribute("succMsg", "Appointment made successfully");

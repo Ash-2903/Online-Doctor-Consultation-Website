@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.entity.Appointment;
+import com.entity.Doctor;
 
 public class AppointmentDao {
 
@@ -23,7 +24,7 @@ public class AppointmentDao {
 		
 		try {
 			
-			String sql = "insert into appointment (user_id, full_name, gender, age , appoint_time, email, phno, diseases, specialist_id, address, status) values (?,?,?,?,?,?,?,?,?,?,?) ";
+			String sql = "insert into appointment (user_id, full_name, gender, age , appoint_time, email, phno, diseases, specialist_id, address, status, doc_name) values (?,?,?,?,?,?,?,?,?,?,?,?) ";
 			PreparedStatement ps = conn.prepareStatement(sql); 
 			ps.setInt(1, ap.getUserId());
 			ps.setString(2, ap.getFullName());
@@ -36,6 +37,7 @@ public class AppointmentDao {
 			ps.setInt(9, ap.getSpId());
 			ps.setString(10, ap.getAddress());
 			ps.setString(11, ap.getStatus());
+			ps.setString(12, ap.getDoctor());
 			
 			int i = ps.executeUpdate();
 			
@@ -77,6 +79,7 @@ public class AppointmentDao {
 				ap.setSpId(rs.getInt(10));
 				ap.setAddress(rs.getString(11));
 				ap.setStatus(rs.getString(12));
+				ap.setDoctor(rs.getString(13));
 				list.add(ap);
 			}
 			
@@ -86,9 +89,44 @@ public class AppointmentDao {
 		
 		return list;
 		
-		
 	}
 	
-	
+	public List<Appointment> getAllAppointmentsByLoginDoctor( Doctor d ) {
+		
+		List<Appointment> list = new ArrayList<Appointment>();
+		Appointment ap = null;
+		
+		try {
+			
+			String st = "Select * FROM appointment where doc_name = ?";
+			PreparedStatement ps = conn.prepareStatement(st);
+			ps.setString(1, d.getFullName());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				ap = new Appointment();
+				/*
+				 * ap.setId(rs.getInt(1)); ap.setUserId(rs.getInt(2));
+				 */
+				ap.setFullName(rs.getString(3));
+				ap.setGender(rs.getString(4));
+				ap.setAge(rs.getString(5));
+				ap.setAppoinTime(rs.getString(6));
+				ap.setEmail(rs.getString(7));
+				ap.setPhNo(rs.getString(8));
+				ap.setDiseases(rs.getString(9));
+				/*
+				 * ap.setSpId(rs.getInt(10)); ap.setAddress(rs.getString(11));
+				 * ap.setStatus(rs.getString(12)); ap.setDoctor(rs.getString(13));
+				 */
+				list.add(ap);
+			}
+			
+		} catch ( Exception e ) {
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+	}
 	
 }
