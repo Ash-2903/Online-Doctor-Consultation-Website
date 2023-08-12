@@ -8,6 +8,9 @@
 <%@page import="com.db.DBConnect"%>
 <%@page import="com.entity.Doctor"%>
 <%@page import="java.util.*"%>
+<%@page import = "java.time.format.DateTimeFormatter" %>
+<%@page import = "java.time.LocalDateTime" %>
+<%@page import = "java.time.LocalDate" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,20 +78,7 @@
 									placeholder="age" required type="number" class="form-control" name="age">
 							</div>
 
-							<div class="col-md-6">
-								<label for="inputEmail4" class="form-label">Appointment
-									Time</label> <select
-									required class="form-control" name="time">
-									<option value="">--select--</option>
-									<option value="8 AM - 10 AM">8 AM - 10 AM</option>
-									<option value="10 AM - 12 PM">10 AM - 12 PM</option>
-									<option value="12 PM - 3 PM">12 PM - 3 PM</option>
-									<option value="3 PM - 5 PM">3 PM - 5 PM</option>
-									<option value="5 PM - 6 PM">5 PM - 6 PM</option>
-									<option value="7 PM - 9 PM">7 PM - 9 PM</option>
-									<option value="9 PM - 12 AM">9 PM - 12 AM</option>
-									</select>
-							</div>
+							
 
 							<div class="col-md-6">
 								<label for="inputEmail4" class="form-label">Email</label> <input
@@ -99,6 +89,40 @@
 								<label for="inputEmail4" class="form-label">Phone No</label> <input
 									placeholder="1234567890" maxlength="10" required type="number" class="form-control"
 									name="phno">
+							</div>
+							
+							<div class="col-md-6">
+								<label class="form-label">Appointment
+									Time</label> <select
+									required class="form-control" name="time">
+									<option value="">--select--</option>
+									<option value="8 AM - 10 AM">8 AM - 10 AM</option>
+									<option value="10 AM - 12 PM">10 AM - 12 PM</option>
+									<option value="12 PM - 3 PM">12 PM - 3 PM</option>
+									<option value="3 PM - 5 PM">3 PM - 5 PM</option>
+									<option value="5 PM - 6 PM">5 PM - 6 PM</option>
+									<option value="7 PM - 9 PM">7 PM - 9 PM</option>
+									<option value="9 PM - 12 AM">9 PM - 12 AM</option>
+									<option value="Any time of the day">Any time of the day</option>
+									</select>
+							</div>
+							
+							<div class="col-md-6">
+								<label class="form-label">Date</label> <select
+									required class="form-control" name="date">
+									<option value="">--select--</option>
+									<%
+										  java.time.LocalDate currentDate = java.time.LocalDate.now();
+										  java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+										  
+											for (int i = 0; i < 4; i++) { 
+										  
+										    java.time.LocalDate date = currentDate.plusDays(i);
+										    String formattedDate = date.format(formatter);
+										  %>
+										  <option value="<%= formattedDate %>"><%= formattedDate %></option>
+										<% } %>
+								</select>
 							</div>
 
 

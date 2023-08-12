@@ -33,6 +33,7 @@ public class AppointmentServlet extends HttpServlet {
 		String disease = req.getParameter("diseases");
 		int sp_id = Integer.parseInt(req.getParameter("specialist"));
 		String address = req.getParameter("address");
+		String date = req.getParameter("date");
 		String bestItem = "na";
 		
 		
@@ -69,7 +70,7 @@ public class AppointmentServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		// System.out.println("The best item is (printing outside try/catch : " + bestItem);
-		Appointment ap = new Appointment(userId, fullName, gender , age , appoint_time, email, phno, disease, sp_id, address, "Pending" , bestItem);
+		Appointment ap = new Appointment(userId, fullName, gender , age , appoint_time, email, phno, disease, sp_id, address, "Pending" , bestItem, date);
 		AppointmentDao dao = new AppointmentDao(DBConnect.getConn());
 		
 		HttpSession session = req.getSession();

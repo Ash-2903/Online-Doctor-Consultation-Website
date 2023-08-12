@@ -5,7 +5,7 @@
 
   <div class="container-fluid">
   
-    <a class="navbar-brand" href="../index.jsp" style="color:black">
+    <a class="navbar-brand" href="index.jsp" style="color:black">
     		<i class="fa-solid fa-user-doctor fa-beat" style="color:black"></i>
     		Cure Quest
     </a>
@@ -19,11 +19,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li class="nav-item">
-          <a class="nav-link active" href="doctor.jsp" style="color:black">Home</a>
+          <a class="nav-link active" href="index.jsp" style="color:black">Home</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link active" href="#" style="color:black">Patient</a>
+          <a class="nav-link active" href="patients.jsp" style="color:black">Patient</a>
         </li>
         
        </ul>
@@ -39,7 +39,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:black; hover:blue;">
 			          	<i class="fa-solid fa-user-doctor fa-lg"></i>
 			            ${doctorObject.fullName}
-			</a>
+		  </a>
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="../doctorLogout">Logout</a></li>

@@ -88,7 +88,8 @@ public class ItemBasedCollaborativeFiltering {
         return bestItem;
     }
     
-    public String getNthBestItem(int n) {
+    
+    public String getNextBestItem(String currentItem) {
         List<Map.Entry<String, Double>> itemsByAverageRating = new ArrayList<>(itemRatings.size());
 
         for (Map.Entry<String, Map<String, Double>> entry : itemRatings.entrySet()) {
@@ -104,17 +105,27 @@ public class ItemBasedCollaborativeFiltering {
 
                 double averageRating = totalRating / numRatings;
 
-                itemsByAverageRating.add(new AbstractMap.SimpleEntry<>(item, averageRating));
+                itemsByAverageRating.add(Map.entry(item, averageRating));
             }
         }
-
         // Sort items by average rating in descending order
         itemsByAverageRating.sort(Map.Entry.<String, Double>comparingByValue().reversed());
 
-        if (n > 0 && n <= itemsByAverageRating.size()) {
-            return itemsByAverageRating.get(n - 1).getKey();
+        int currentIndex = -1;
+        for (int i = 0; i < itemsByAverageRating.size(); i++) {
+            if (itemsByAverageRating.get(i).getKey().equals(currentItem)) {
+                currentIndex = i;
+                break;
+            }
+        }
+
+        if (currentIndex != -1 && currentIndex + 1 < itemsByAverageRating.size()) {
+            return itemsByAverageRating.get(currentIndex + 1).getKey();
         } else {
-            return null; // If n is invalid (out of range), return null
+            return null;
         }
     }
+    
+    
+    
 }

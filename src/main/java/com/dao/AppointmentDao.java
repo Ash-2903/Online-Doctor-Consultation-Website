@@ -24,7 +24,7 @@ public class AppointmentDao {
 		
 		try {
 			
-			String sql = "insert into appointment (user_id, full_name, gender, age , appoint_time, email, phno, diseases, specialist_id, address, status, doc_name) values (?,?,?,?,?,?,?,?,?,?,?,?) ";
+			String sql = "insert into appointment (user_id, full_name, gender, age , appoint_time, email, phno, diseases, specialist_id, address, status, doc_name, date) values (?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 			PreparedStatement ps = conn.prepareStatement(sql); 
 			ps.setInt(1, ap.getUserId());
 			ps.setString(2, ap.getFullName());
@@ -38,6 +38,7 @@ public class AppointmentDao {
 			ps.setString(10, ap.getAddress());
 			ps.setString(11, ap.getStatus());
 			ps.setString(12, ap.getDoctor());
+			ps.setString(13, ap.getDate());
 			
 			int i = ps.executeUpdate();
 			
@@ -80,6 +81,7 @@ public class AppointmentDao {
 				ap.setAddress(rs.getString(11));
 				ap.setStatus(rs.getString(12));
 				ap.setDoctor(rs.getString(13));
+				ap.setDate(rs.getString(14));
 				list.add(ap);
 			}
 			
@@ -107,16 +109,20 @@ public class AppointmentDao {
 				/*
 				 * ap.setId(rs.getInt(1)); ap.setUserId(rs.getInt(2));
 				 */
+				ap.setId(rs.getInt(1));
 				ap.setFullName(rs.getString(3));
 				ap.setGender(rs.getString(4));
 				ap.setAge(rs.getString(5));
 				ap.setAppoinTime(rs.getString(6));
+				ap.setDate(rs.getString(14));
 				ap.setEmail(rs.getString(7));
 				ap.setPhNo(rs.getString(8));
+				ap.setSpId(rs.getInt(10));
 				ap.setDiseases(rs.getString(9));
+				ap.setStatus(rs.getString(12));
 				/*
 				 * ap.setSpId(rs.getInt(10)); ap.setAddress(rs.getString(11));
-				 * ap.setStatus(rs.getString(12)); ap.setDoctor(rs.getString(13));
+				 * ap.setDoctor(rs.getString(13));
 				 */
 				list.add(ap);
 			}
@@ -129,4 +135,107 @@ public class AppointmentDao {
 		
 	}
 	
+	public Appointment getAppointmentById(int id) {
+		
+		Appointment ap = null;
+		
+		try {
+			
+			String sql = "select * from appointment where id = " + id;
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				ap = new Appointment();
+				ap.setId(rs.getInt(1));
+				ap.setUserId(rs.getInt(2));
+				ap.setFullName(rs.getString(3));
+				ap.setGender(rs.getString(4));
+				ap.setAge(rs.getString(5));
+				ap.setAppoinTime(rs.getString(6));
+				ap.setEmail(rs.getString(7));
+				ap.setPhNo(rs.getString(8));
+				ap.setDiseases(rs.getString(9));
+				ap.setSpId(rs.getInt(10));
+				ap.setAddress(rs.getString(11));
+				ap.setStatus(rs.getString(12));
+				ap.setDoctor(rs.getString(13));
+				ap.setDate(rs.getString(14));
+			}
+			
+			
+		} catch ( Exception e ) {
+			e.printStackTrace();
+		}
+		
+		return ap;
+		
+	}
+	
+	
+	public boolean updateCommentStatus( int id, String docName, String comment ) {
+		
+		boolean f = false;
+		
+		try {
+			
+			String sql = "update appointment set status = ? where id = ? and doc_name = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, comment);
+			ps.setInt(2, id);
+			ps.setString(3, docName);
+			
+			int i = ps.executeUpdate();
+			if(i==1) {
+				f = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f;
+		
+	}
+	
+	public boolean updateDoctor(String docName, int appId) {
+		
+		boolean f = false;
+		
+		try {
+			
+			String sql = "update appointment set doc_name = ? where id = ?";
+			System.out.println(docName);
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, docName);
+			ps.setInt(2, appId);
+			
+			int i = ps.executeUpdate();
+			if(i==1) {
+				f = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f;
+		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

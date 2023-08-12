@@ -15,6 +15,7 @@ public class Appointment {
 	private String address;
 	private String status;
 	private String doctor;
+	private String date;
 	
 	
 	public Appointment() {
@@ -23,7 +24,7 @@ public class Appointment {
 
 
 	public Appointment(int userId, String fullName, String gender, String age, String appoinTime, String email,
-			String phNo, String diseases, int spId, String address, String status, String doctor) {
+			String phNo, String diseases, int spId, String address, String status, String doctor, String date) {
 		super();
 		this.userId = userId;
 		this.fullName = fullName;
@@ -37,6 +38,7 @@ public class Appointment {
 		this.address = address;
 		this.status = status;
 		this.doctor = doctor;
+		this.date = date;
 	}
 
 
@@ -165,6 +167,14 @@ public class Appointment {
 	
 	public String getDoctor() {
 		return doctor;
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	public String getDate() {
+		return date;
 	}
 
 

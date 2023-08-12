@@ -68,6 +68,7 @@
 									
 									<th scope="col">Gender</th>
 									<th scope="col">Age</th>
+									<th scope="col">Appointment Date</th>
 									<th scope="col">Appointment Time</th>
 									<th scope="col">Email</th>
 									<th scope="col">Mob No</th>
@@ -78,33 +79,40 @@
 							<tbody>
 								<%
 								
-								User userObj = (User) request.getSession().getAttribute("userObject");
-								int userId = userObj.getId();
-								String st = "Select * FROM appointment WHERE user_id = " + userId ;
-								PreparedStatement ps = DBConnect.getConn().prepareStatement(st);
-								ResultSet rs = ps.executeQuery();
-								while(rs.next()) {
-									/* System.out.println(d.getId); */
-									
+									User userObj = (User) request.getSession().getAttribute("userObject");
+									int userId = userObj.getId();
+									String st = "Select * FROM appointment WHERE user_id = " + userId ;
+									PreparedStatement ps = DBConnect.getConn().prepareStatement(st);
+									ResultSet rs = ps.executeQuery();
+									while(rs.next()) {
+										/* System.out.println(d.getId); */
 								%>
 								<tr>
 									<%-- <td><%=d.getId()%></td> --%>
 									<%-- <td><%=${doc_name}%></td> --%>
-									<td><%=rs.getString(13)%></td>
+									
+									<% if(rs.getString(13)== null) { %>
+										<td><p class="fs-5 text-center text-danger">Sorry ! Our doctors are not available at this date and time</p></td>
+									<% } else { %>
+										<td><%=rs.getString(13)%></td>
+									<% } %>
 									<td><%=rs.getString(3)%></td>
 									<td><%=rs.getString(4)%></td>
 									<td><%=rs.getString(5)%></td>
+									<td><%=rs.getString(14)%></td>
 									<td><%=rs.getString(6)%></td>
 									<td><%=rs.getString(7)%></td>
 									<td><%=rs.getString(8)%></td>
 									<td><%=rs.getString(9)%></td>
 									<td>
-										<form action="video/video.html" method="post">
-											<button  class="btn btn-primary">Start Conversation</button>
-										</form>
-										
-									</td>
 									
+									<% if("Pending".equals(rs.getString(12))) { %>
+											<a href="#" class = "btn btn-warning disabled">Pending</a>
+									<% 	} else { %>
+											<a href="video/video.html?id=<%=rs.getString(1)%>" class = "btn btn-success">Start Conversation</a>
+									<% } %>
+							
+									</td>
 								</tr>
 								<%
 									}
