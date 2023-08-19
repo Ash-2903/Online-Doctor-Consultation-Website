@@ -204,7 +204,7 @@ public class AppointmentDao {
 		try {
 			
 			String sql = "update appointment set doc_name = ? where id = ?";
-			System.out.println(docName);
+			/* System.out.println(docName); */
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, docName);
 			ps.setInt(2, appId);
@@ -215,6 +215,29 @@ public class AppointmentDao {
 			}
 			
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f;
+		
+	}
+	
+	public boolean deleteAppointment( int id ) {
+		
+		boolean f = false;
+		
+		try {
+			
+			String sql = "DELETE FROM appointment WHERE id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			
+			int i = ps.executeUpdate();
+			if(i==1) {
+				f = true;
+			}
+			
+		} catch( Exception e ) {
 			e.printStackTrace();
 		}
 		

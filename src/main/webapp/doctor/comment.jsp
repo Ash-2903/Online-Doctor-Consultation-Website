@@ -63,7 +63,7 @@
 							</div>
 
 							<div class="col-md-6">
-								<label>Age</label> <input type="text" value="<%=ap.getAge()%>"
+								<label>Email</label> <input type="text" value="<%=ap.getEmail()%>"
 									readonly class="form-control">
 							</div>
 

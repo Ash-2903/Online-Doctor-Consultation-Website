@@ -121,6 +121,7 @@
 											
 									<% 	} else { %>
 											<a href="../video/video.html?id=<%=a.getId()%>" class = "btn btn-success">Start Conversation</a>
+											<a href="#" class = "btn btn-primary">Prescribe</a>
 									<% } %>
 
 									</td>
@@ -131,11 +132,8 @@
 									}
 								%>
 								
-							
 							</tbody>
 						</table>
-						
-						
 
 					</div>
 				</div>
@@ -144,6 +142,5 @@
 		</div>
 	</div>	
 
-	
 </body>
 </html>

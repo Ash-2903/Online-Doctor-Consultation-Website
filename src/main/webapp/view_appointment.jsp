@@ -62,18 +62,16 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<!-- <th scope="col">Doctor Name</th> -->
 									<th scope="col">Doctor</th>
 									<th scope="col">Patient Name</th>
-									
 									<th scope="col">Gender</th>
 									<th scope="col">Age</th>
 									<th scope="col">Appointment Date</th>
 									<th scope="col">Appointment Time</th>
-									<th scope="col">Email</th>
-									<th scope="col">Mob No</th>
+									<!-- <th scope="col">Email</th>
+									<th scope="col">Mob No</th> -->
 									<th scope="col">Disease</th>
-									<th scope="col">Action</th>
+									<th scope="col">Response</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -88,11 +86,11 @@
 										/* System.out.println(d.getId); */
 								%>
 								<tr>
-									<%-- <td><%=d.getId()%></td> --%>
-									<%-- <td><%=${doc_name}%></td> --%>
-									
 									<% if(rs.getString(13)== null) { %>
-										<td><p class="fs-5 text-center text-danger">Sorry ! Our doctors are not available at this date and time</p></td>
+										<td>
+											<p class="fs-7 text-center text-danger">Sorry ! Our doctors are not available at this date and time</p>
+											<p class="fs-7 text-center text-danger">Please make another appointment with different time and date</p>
+										</td>
 									<% } else { %>
 										<td><%=rs.getString(13)%></td>
 									<% } %>
@@ -101,22 +99,28 @@
 									<td><%=rs.getString(5)%></td>
 									<td><%=rs.getString(14)%></td>
 									<td><%=rs.getString(6)%></td>
-									<td><%=rs.getString(7)%></td>
-									<td><%=rs.getString(8)%></td>
+									<%-- <td><%=rs.getString(7)%></td>
+									<td><%=rs.getString(8)%></td> --%>
 									<td><%=rs.getString(9)%></td>
 									<td>
 									
-									<% if("Pending".equals(rs.getString(12))) { %>
-											<a href="#" class = "btn btn-warning disabled">Pending</a>
-									<% 	} else { %>
+									<% if(rs.getString(13)== null) { %>
+											<a href="makeNewAppointment?id=<%=rs.getString(1)%>" class="btn btn-danger">make new appointment</a>
+									<% 	} else if("Pending".equals(rs.getString(12))){ %>
+											<a href="#" class = "btn btn-warning disabled">Pending</a>	
+									<% } else { %>
+											<p class="text-success">Accepted</p>
+											<p><%= rs.getString(12)%></p>
 											<a href="video/video.html?id=<%=rs.getString(1)%>" class = "btn btn-success">Start Conversation</a>
 									<% } %>
-							
+									
 									</td>
+									
 								</tr>
 								<%
 									}
 								%>
+								
 							</tbody>
 						</table>
 

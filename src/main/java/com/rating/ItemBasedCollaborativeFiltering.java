@@ -108,6 +108,7 @@ public class ItemBasedCollaborativeFiltering {
                 itemsByAverageRating.add(Map.entry(item, averageRating));
             }
         }
+        
         // Sort items by average rating in descending order
         itemsByAverageRating.sort(Map.Entry.<String, Double>comparingByValue().reversed());
 
