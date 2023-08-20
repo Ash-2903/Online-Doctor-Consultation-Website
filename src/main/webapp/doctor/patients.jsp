@@ -67,6 +67,14 @@
 							<div class="fs-3 text-center text-danger" role="alert">${rejectMsg}</div>
 							<c:remove var="rejectMsg" scope="session" />
 						</c:if>
+						<c:if test="${not empty p_succMsg}">
+							<div class="fs-3 text-center text-success" role="alert">${p_succMsg}</div>
+							<c:remove var="p_succMsg" scope="session" />
+						</c:if>
+						<c:if test="${not empty p_errorMsg}">
+							<div class="fs-3 text-center text-danger" role="alert">${p_errorMsg}</div>
+							<c:remove var="p_errorMsg" scope="session" />
+						</c:if>
 						<table class="table">
 							<thead>
 								<tr>
@@ -94,7 +102,8 @@
 								List<Appointment> list = sp.getAllAppointmentsByLoginDoctor( doc );
 								
 								for (Appointment a : list) {
-									 /* System.out.println("inside jsp : " + a.getFullName()); */
+									 int uid = sp.getUserIdForPrescription(a.getId());
+									 /* System.out.println("inside jsp : " + uid + " and " + a.getId()); */
 									
 								%>
 								<tr>
@@ -121,7 +130,7 @@
 											
 									<% 	} else { %>
 											<a href="../video/video.html?id=<%=a.getId()%>" class = "btn btn-success">Start Conversation</a>
-											<a href="#" class = "btn btn-primary">Prescribe</a>
+											<a href="prescribe.jsp?id=<%=a.getId()%>&uid=<%=uid%>" class = "btn btn-primary">Prescribe</a>
 									<% } %>
 
 									</td>

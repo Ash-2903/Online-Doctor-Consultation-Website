@@ -110,6 +110,7 @@ public class AppointmentDao {
 				 * ap.setId(rs.getInt(1)); ap.setUserId(rs.getInt(2));
 				 */
 				ap.setId(rs.getInt(1));
+				/* ap.setId(rs.getInt(2)); */
 				ap.setFullName(rs.getString(3));
 				ap.setGender(rs.getString(4));
 				ap.setAge(rs.getString(5));
@@ -142,6 +143,42 @@ public class AppointmentDao {
 		try {
 			
 			String sql = "select * from appointment where id = " + id;
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				ap = new Appointment();
+				ap.setId(rs.getInt(1));
+				ap.setUserId(rs.getInt(2));
+				ap.setFullName(rs.getString(3));
+				ap.setGender(rs.getString(4));
+				ap.setAge(rs.getString(5));
+				ap.setAppoinTime(rs.getString(6));
+				ap.setEmail(rs.getString(7));
+				ap.setPhNo(rs.getString(8));
+				ap.setDiseases(rs.getString(9));
+				ap.setSpId(rs.getInt(10));
+				ap.setAddress(rs.getString(11));
+				ap.setStatus(rs.getString(12));
+				ap.setDoctor(rs.getString(13));
+				ap.setDate(rs.getString(14));
+			}
+			
+			
+		} catch ( Exception e ) {
+			e.printStackTrace();
+		}
+		
+		return ap;
+		
+	}
+	
+	public Appointment getAppointmentByIdDb2(int id) {
+		
+		Appointment ap = null;
+		
+		try {
+			
+			String sql = "select * from old_appointment where id = " + id;
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -242,6 +279,70 @@ public class AppointmentDao {
 		}
 		
 		return f;
+		
+	}
+	
+	
+	public int getUserIdForPrescription(int aptId) {
+		int uid = 0;
+		
+		try {
+			String sql = "select user_id from appointment where id = " + aptId;
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				uid = rs.getInt(1);
+				/* System.out.println("fromthe server Uid : " + uid); */
+			} else {
+				System.out.println("getting uid didnt work in the servelt");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return uid;
+	}
+	
+	public boolean updateAptToOldAptDb( Appointment ap ) {
+		
+		boolean f1 = false;
+		boolean f2 = false;
+		boolean f3 = false;
+		AppointmentDao dao = new AppointmentDao(conn);
+		
+		try {
+			String sql = "insert into appointment (id,user_id, full_name, gender, age , appoint_time, email, phno, diseases, specialist_id, address, status, doc_name, date) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+			PreparedStatement ps = conn.prepareStatement(sql); 
+			ps.setInt(1, ap.getUserId());
+			ps.setInt(2, ap.getId());
+			ps.setString(3, ap.getFullName());
+			ps.setString(4, ap.getGender());
+			ps.setString(5, ap.getAge());
+			ps.setString(6, ap.getAppoinTime());
+			ps.setString(7, ap.getEmail());
+			ps.setString(8, ap.getPhNo());
+			ps.setString(9, ap.getDiseases());
+			ps.setInt(10, ap.getSpId());
+			ps.setString(11, ap.getAddress());
+			ps.setString(12, ap.getStatus());
+			ps.setString(13, ap.getDoctor());
+			ps.setString(14, ap.getDate());
+			
+			int i = ps.executeUpdate();
+			if(i==1) {
+				f2 = true;
+			}
+			
+			f3 = dao.deleteAppointment(ap.getId());
+			if(f3 && f2) {
+				f1 = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f1;
 		
 	}
 	

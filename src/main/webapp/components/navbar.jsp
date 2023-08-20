@@ -48,13 +48,16 @@
     	<div class="collapse navbar-collapse" id="navbarSupportedContent">
       		<ul class="navbar-nav md-auto mb-2 mb-lg-0">
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="user_appointment.jsp">APPOINTMENT</a>
+		          <a class="nav-link active" aria-current="page" href="user_appointment.jsp">Make Appointment</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="view_docs.jsp">VIEW DOCTORS</a>
+		          <a class="nav-link active" aria-current="page" href="view_docs.jsp">View Doctors</a>
 		        </li>
 		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="view_appointment.jsp">VIEW APPOINTMENT</a>
+		          <a class="nav-link active" aria-current="page" href="view_appointment.jsp">View Appointments</a>
+		        </li>
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="viewPrescription.jsp">View Prescription</a>
 		        </li>
 		    </ul>
     	

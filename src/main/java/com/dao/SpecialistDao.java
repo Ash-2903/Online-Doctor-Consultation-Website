@@ -57,4 +57,23 @@ public class SpecialistDao {
 		
 	}
 	
+	public String getSpById( int id ) {
+		
+		String sp = "";
+		
+		try {
+			String sql = "select sp_name from specialist where id = " + id;
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				sp = rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return sp;
+		
+	}
+	
 }
