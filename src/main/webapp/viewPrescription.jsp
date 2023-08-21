@@ -47,7 +47,7 @@
 	<div class="container-fulid bgImg p-5">
 		<p class="text-center fs-2 text-white"></p>
 	</div>
-	
+
 	<h1 class="text-center p-5">Your Prescription</h1>
 	
 	<%
@@ -62,7 +62,7 @@
 			String sp_name = spDao.getSpById(ap.getSpId());
 	%>
 	
-		<div class="col-md-5 mx-auto mb-4">
+	  <div class="col-md-5 mx-auto mb-4">
 	    <div class="card paint-card">
 	      <div class="card-body">
 	      	<h5 class="card-title text-center p-3">Doctor : <%= ap.getDoctor() %> ( <%= sp_name %> )</h5><hr>

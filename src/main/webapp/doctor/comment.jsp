@@ -5,6 +5,8 @@
 <%@page import="com.db.DBConnect" %>
 <%@page import="com.entity.Appointment" %>
 <%@page import="com.dao.AppointmentDao" %>
+<%@page import="java.util.List" %>
+<%@page import="com.dao.SpecialistDao" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,7 +97,56 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div><br><br>
+	
+	<div class="container-fluid p-3">
+		<div class="row">
 
+
+			<div class="col-md-9 text-center mx-auto">
+			<div class="card paint-card">
+					<div class="card-body">
+						<p class="fs-3 text-center">The patient's Appointments History</p>
+						
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Doctor</th>
+									<th scope="col">Specialization</th>
+									<th scope="col">Patient Name</th>
+									<th scope="col">Gender</th>
+									<th scope="col">Age</th>
+									<th scope="col">Appointment Date</th>
+									<th scope="col">Disease</th>
+								</tr>
+							</thead>
+							<tbody>
+						<%
+							List<Appointment> list = dao.getAllOldAppointmentsById(ap.getUserId());
+							SpecialistDao spDao = new SpecialistDao(DBConnect.getConn());
+							for (Appointment a : list) {
+						%>
+						
+							<tr>
+								<td><%= a.getDoctor() %></td>
+								<td><%= spDao.getSpById(a.getSpId()) %></td>
+								<td><%= a.getFullName() %></td>
+								<td><%= a.getGender() %></td>
+								<td><%= a.getAge() %></td>
+								<td><%= a.getDate() %></td>
+								<td><%= a.getDiseases() %></td>
+								
+							</tr>
+						
+						
+						<%} %>
+						</tbody>
+						</table>
+
+			</div>
+		</div>
+		</div>
+		</div>
+		</div><br><br><br><br>
 </body>
 </html>

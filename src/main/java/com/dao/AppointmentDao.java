@@ -178,8 +178,9 @@ public class AppointmentDao {
 		
 		try {
 			
-			String sql = "select * from old_appointment where id = " + id;
+			String sql = "select * from old_appointment where id = ?";
 			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				ap = new Appointment();
@@ -311,10 +312,10 @@ public class AppointmentDao {
 		AppointmentDao dao = new AppointmentDao(conn);
 		
 		try {
-			String sql = "insert into appointment (id,user_id, full_name, gender, age , appoint_time, email, phno, diseases, specialist_id, address, status, doc_name, date) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+			String sql = "insert into old_appointment (id,user_id, full_name, gender, age , appoint_time, email, phno, diseases, specialist_id, address, status, doc_name, date) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
 			PreparedStatement ps = conn.prepareStatement(sql); 
-			ps.setInt(1, ap.getUserId());
-			ps.setInt(2, ap.getId());
+			ps.setInt(1, ap.getId());
+			ps.setInt(2, ap.getUserId());
 			ps.setString(3, ap.getFullName());
 			ps.setString(4, ap.getGender());
 			ps.setString(5, ap.getAge());
@@ -331,11 +332,14 @@ public class AppointmentDao {
 			int i = ps.executeUpdate();
 			if(i==1) {
 				f2 = true;
+				System.out.println("insertion : " + f2);
 			}
 			
 			f3 = dao.deleteAppointment(ap.getId());
+			System.out.println("deleting : " + f3);
 			if(f3 && f2) {
 				f1 = true;
+				System.out.println("total : " + f1);
 			}
 			
 		} catch (Exception e) {
@@ -343,6 +347,46 @@ public class AppointmentDao {
 		}
 		
 		return f1;
+		
+	}
+	
+public List<Appointment> getAllOldAppointmentsById( int id ) {
+		
+		List<Appointment> list = new ArrayList<Appointment>();
+		Appointment ap = null;
+		
+		try {
+			
+			String st = "Select * FROM old_appointment where user_id = ?";
+			PreparedStatement ps = conn.prepareStatement(st);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				ap = new Appointment();
+				/*
+				 * ap.setId(rs.getInt(1)); ap.setUserId(rs.getInt(2));
+				 */
+				ap.setId(rs.getInt(1));
+				/* ap.setId(rs.getInt(2)); */
+				ap.setFullName(rs.getString(3));
+				ap.setGender(rs.getString(4));
+				ap.setAge(rs.getString(5));
+				ap.setAppoinTime(rs.getString(6));
+				ap.setDate(rs.getString(14));
+				ap.setEmail(rs.getString(7));
+				ap.setPhNo(rs.getString(8));
+				ap.setSpId(rs.getInt(10));
+				ap.setDiseases(rs.getString(9));
+				ap.setStatus(rs.getString(12));
+				ap.setDoctor(rs.getString(13));
+				list.add(ap);
+			}
+			
+		} catch ( Exception e ) {
+			e.printStackTrace();
+		}
+		
+		return list;
 		
 	}
 	
