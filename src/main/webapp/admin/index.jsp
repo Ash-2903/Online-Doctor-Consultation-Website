@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page isELIgnored="false" %>
+<%@page import="com.db.DBConnect" %>
+<%@page import="com.dao.DoctorDao" %>
+<%@page import="com.dao.AppointmentDao" %>
+<%@page import="com.dao.UserDao" %>
+<%@page import="com.dao.SpecialistDao" %>
 
 <!DOCTYPE html>
 <html>
@@ -47,7 +52,10 @@
 	      <div class="card-body text-center">
 	      	<i class="fa-solid fa-user-doctor fa-2xl"></i><hr>
 	        <h5 class="card-title">Doctors</h5>
-	        <p class="card-text">42</p>
+	        <%
+	        	DoctorDao dao = new DoctorDao(DBConnect.getConn());
+	        %>
+	        <p class="card-text"><%= dao.countDocs() %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -56,8 +64,11 @@
 	    <div class="card paint-card p-5">
 	      <div class="card-body text-center">
 	      	<i class="fa-solid fa-user fa-2xl"></i><hr>
+	      	<%
+	      		UserDao uDao = new UserDao(DBConnect.getConn());
+	      	%>
 	        <h5 class="card-title">Users</h5>
-	        <p class="card-text">169</p>
+	        <p class="card-text"><%= uDao.countUsers() %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -71,8 +82,11 @@
 	    <div class="card paint-card p-5">
 	      <div class="card-body text-center">
 	      	<i class="fa-regular fa-calendar-check fa-2xl"></i><hr>
+	      	<%
+	      	AppointmentDao aDao = new AppointmentDao(DBConnect.getConn());
+	      	%>
 	        <h5 class="card-title">Total Appointments</h5>
-	        <p class="card-text">29</p>
+	        <p class="card-text"><%= aDao.countAppointments() %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -81,8 +95,11 @@
 	    <div class="card paint-card p-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
 	      <div class="card-body text-center">
 	      	<i class="fa-solid fa-calendar-check fa-2xl"></i><hr>
+	      	<%
+	      		SpecialistDao sDao = new SpecialistDao(DBConnect.getConn());
+	      	%>
 	        <h5 class="card-title">Specialists</h5>
-	        <p class="card-text">29</p>
+	        <p class="card-text"><%= sDao.countSpecialist() %></p>
 	      </div>
 	    </div>
 	  </div>

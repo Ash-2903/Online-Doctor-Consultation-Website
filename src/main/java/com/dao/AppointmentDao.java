@@ -389,6 +389,39 @@ public List<Appointment> getAllOldAppointmentsById( int id ) {
 		return list;
 		
 	}
+
+	public int countAppointments() {
+		int i = 0;
+		try {
+			String sql = "select * from appointment";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				i++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+	
+	public int countAppointmentsByDocId(String doc) {
+		int i = 0;
+		try {
+			String sql = "select * from appointment where doc_name = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, doc);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				i++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
 	
 }
 

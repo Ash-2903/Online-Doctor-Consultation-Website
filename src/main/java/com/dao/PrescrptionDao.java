@@ -52,7 +52,7 @@ public class PrescrptionDao {
 		
 		try {
 			
-			String st = "Select * FROM prescribe where uid = ?";
+			String st = "Select * FROM prescribe where uid = ( ? ) order by id desc";
 			PreparedStatement ps = conn.prepareStatement(st);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();

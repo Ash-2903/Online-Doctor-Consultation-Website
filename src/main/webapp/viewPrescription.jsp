@@ -48,7 +48,7 @@
 		<p class="text-center fs-2 text-white"></p>
 	</div>
 
-	<h1 class="text-center p-5">Your Prescription</h1>
+	<h1 class="text-center p-5">Your Prescriptions</h1>
 	
 	<%
 		PrescrptionDao pd = new PrescrptionDao(DBConnect.getConn());
@@ -65,7 +65,7 @@
 	  <div class="col-md-5 mx-auto mb-4">
 	    <div class="card paint-card">
 	      <div class="card-body">
-	      	<h5 class="card-title text-center p-3">Doctor : <%= ap.getDoctor() %> ( <%= sp_name %> )</h5><hr>
+	      	<h5 class="card-title text-center p-3" style="color:#1D5D9B">Doctor : <%= ap.getDoctor() %> ( <%= sp_name %> )</h5><hr>
 	        <p class="card-text"><strong>Date : </strong><%= ap.getDate() %></p>
 	        <p><strong>Time of Appointment : </strong><%= ap.getAppoinTime() %></p>
 	        <p><strong>Illness : </strong><%= ap.getDiseases() %></p><br>

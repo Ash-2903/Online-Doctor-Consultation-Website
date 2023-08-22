@@ -28,7 +28,7 @@ public class RejectPatient extends HttpServlet {
 		System.out.println(doc_name);
 		
 		
-		System.out.println("app_id : " + app_id + " sp_id : " + sp_id);
+		// System.out.println("app_id : " + app_id + " sp_id : " + sp_id);
 		
 		ItemBasedCollaborativeFiltering cf = new ItemBasedCollaborativeFiltering();
 		
@@ -51,7 +51,7 @@ public class RejectPatient extends HttpServlet {
 			}
 			
 			nextBestDoc = cf.getNextBestItem(doc_name);
-	        System.out.println("The best item is: " + nextBestDoc);
+	        // System.out.println("The best item is: " + nextBestDoc);
 			
 			AppointmentDao dao = new AppointmentDao(DBConnect.getConn());
 			boolean f = dao.updateDoctor(nextBestDoc, app_id );

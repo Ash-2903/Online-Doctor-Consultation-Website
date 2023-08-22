@@ -110,6 +110,24 @@ public class DoctorDao {
 		return d;
 	}
 	
+	public int countDocs() {
+		int i = 0;
+		try {
+			String sql = "select * from doctor_details order by id desc";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				i++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+	
+
+	
 }
 
 
