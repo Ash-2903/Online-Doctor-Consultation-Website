@@ -30,10 +30,9 @@
     
     <style>
     	.bgImg {
-			background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/apmt_bg.jpg");
-			height : 100%;
+			height : 80vh;
 			width: 100%;
-			bachground-size: 100% 100%;
+			bachground-size: cover;
 			background-repeat: no-repeat;
 		}
     </style>
@@ -69,38 +68,44 @@
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+    
     <div class="carousel-inner">
-      <div class="carousel-item active bgImg">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <div class="container bgImg">
+    
+     <div class="carousel-item active">
+      <img class="bgImg" src="https://www.cmss.gov.in/wp-content/uploads/2021/12/Slider-new.jpg" />
+        <div class="container">
           <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up</a></p>
+            <h1>Your Health, Your Way</h1>
+            <p class="opacity-75">Our platform offers a wide range of medical specialties to cater to your specific health concerns.</p>
+            <p><a class="btn btn-lg btn-primary" href="signup.jsp">Sign up</a></p>
           </div>
         </div>
       </div>
+      
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img class="bgImg" src="https://static.vecteezy.com/system/resources/thumbnails/006/712/985/small/abstract-health-medical-science-healthcare-icon-digital-technology-science-concept-modern-innovation-treatment-medicine-on-hi-tech-future-blue-background-for-wallpaper-template-web-design-vector.jpg" />
         <div class="container">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <h1>Expert Care, Anywhere You Are</h1>
+            <p>Distance is no longer a barrier to exceptional medical expertise.</p>
             <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      
+     <!--  <div class="carousel-item">
+        <img class="bgImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM6os8g4HiEofCaSaFMGMBbwTob03XYun_tQ&usqp=CAU" />
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <h1>Confidentiality and Compassion Combined</h1>
+            <p>Prioritizing a confidential and empathetic environment for consultations.</p>
             <p><a class="btn btn-lg btn-primary" href="#">Browse documentation</a></p>
           </div>
         </div>
-      </div>
+      </div> -->
+      
     </div>
+    
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -117,27 +122,32 @@
 
   <div class="container marketing">
 
+	<h1 class="text-center mb-5" style=color:#706f6f > <span class="display-4 fw-bold" style=color:#749BC2>3 </span>Simple steps for safest treatment</h1><br>
+
     <!-- Three columns of text below the carousel -->
+    
     <div class="row">
+    
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
-        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+        <i class="fa-solid fa-list fa-2xl" style="color: #2d3649; height: 40px"></i>
+        <h2 class="fw-normal"> Fill the form</h2>
+        <p>Create an account and make an appointment.</p>
+      </div>
+      
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
+        <i class="fa-solid fa-user-doctor fa-2xl" style="color: #2d3649; height: 40px;"></i>
+        <h2 class="fw-normal">Doctor</h2>
+        <p>We will help you choose the right doctor.</p>
+      </div>
+      
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Heading</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+        <i class="fa-solid fa-video fa-2xl" style="color: #2d3649; height: 40px;"></i>
+        <h2 class="fw-normal">Consultation</h2>
+        <p>Consult the doctor online and avail the safest treatment</p>
+        <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+      </div>
+
+    </div>
 
 
     <!-- ======================= 3 FEATURETTES ===========================  -->
@@ -146,11 +156,13 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It will blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+        <h1 class="text-center mb-5" style=color:#706f6f >Our Services <span class="text-body-secondary"></span></h1>
+        <p class="lead">Our online doctor consultation platform provides you with access to qualified and experienced medical professionals from various specialties. 
+        		Whether you need a general health check-up, advice on a specific medical concern, or a second opinion, our team of licensed doctors is here to help. 
+        		</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+      		<img src="https://img.freepik.com/premium-photo/closeup-black-doctor-advising-patient-during-video-call-smart-phone_637285-12133.jpg" height=400px alt="image"> 
       </div>
     </div>
 
@@ -158,11 +170,15 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it is that good. <span class="text-body-secondary">See for yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+        <h1 class="text-center mb-5" style=color:#706f6f >How It Works </h1>
+        <p class="lead  ms-5">1. Sign Up - Create an account on our platform and provide your basic medical history.</p>
+        <p class="lead  ms-5">2. Book a Consultation - Choose a suitable date and time for your online consultation.</p>
+        <p class="lead  ms-5">3. Speak to a Doctor - Connect with a certified doctor via secure video call.</p>
+        <p class="lead  ms-5">4. Receive Medical Advice - Discuss your symptoms, receive a diagnosis, and get personalized treatment recommendations.</p>
+        <p class="lead  ms-5">5. Prescriptions - Get prescriptions from your doctors during the end of the session.</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+     	<img src="https://media.istockphoto.com/id/1132186568/photo/shopping-cart-toy-with-medicaments-in-front-of-laptop-screen-with-pharmacy-web-site-on-it.jpg?s=612x612&w=0&k=20&c=irqkSTLLLcYCHY6lGHq1hY4T0_jfKfyWlyydMj8l5a8=" height=400px align=right alt="image">     
       </div>
     </div>
 
@@ -170,12 +186,14 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
-        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+        <h1 class="text-center mb-5" style=color:#706f6f >Why Choose Us</h1>
+        <p class="lead">Access healthcare services from the comfort of your home, eliminating the need to travel and wait in crowded clinics.
+        	Our platform hosts a diverse team of qualified doctors across various medical fields, ensuring you receive accurate and specialized guidance.
+        </p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
-      </div>
+     	  <img src="https://benefits.vmware.com/wp-content/uploads/2016/06/medical-2.jpg" height=400px alt="image">
+     </div>
     </div>
 
     <hr class="featurette-divider">

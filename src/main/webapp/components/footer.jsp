@@ -69,9 +69,8 @@
     <!-- Section: Text -->
     <section class="mb-4">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
+        Whether you need a routine check-up, medical advice, or a second opinion, our virtual consultations provide personalized care tailored to your needs. 
+        Your health is our priority, and we're committed to offering you a seamless, secure, and compassionate healthcare experience online
       </p>
     </section>
     <!-- Section: Text -->

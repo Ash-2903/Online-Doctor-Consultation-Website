@@ -6,7 +6,7 @@
   <div class="container-fluid">
   
     <a class="navbar-brand" href="index.jsp" style="color:black">
-    		<i class="fa-solid fa-user-doctor fa-beat" style="color:black"></i>
+    		<i class="fa-solid fa-stethoscope fa-beat" style="color:black"></i>
     		Cure Quest
     </a>
     

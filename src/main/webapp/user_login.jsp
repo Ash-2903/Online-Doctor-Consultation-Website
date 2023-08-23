@@ -17,17 +17,12 @@
 			height: 1px;
 			background: #eee;
 		}
-		
-	
+			
 </style>
 
 </head>
 <body style="background-color : #F5F5F5">
 	<%@include file="components/navbar.jsp" %>
-
-	
-	
-	
 	
 <section class="vh-100" >
   <div class="container py-5 h-100">
@@ -75,7 +70,7 @@
                     <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                   </div>
 
-                  <a class="small text-muted" style="text-decoration: none" href="#!">Forgot password?</a>
+                  <!-- <a class="small text-muted" style="text-decoration: none" href="#!">Forgot password?</a> -->
                   <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="signup.jsp"
                       style="color: #393f81;">Register here</a></p>
                   <a href="#!" class="small text-muted">Terms of use.</a>
@@ -97,16 +92,6 @@
 </div>
 </section>
   
-   
-  
-  
-
-
-  		
-  		
-
-
-
 
 </body>
 </html>

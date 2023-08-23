@@ -108,7 +108,6 @@
 									<th scope="col">Specialisation</th>
 									<th scope="col">Email</th>
 									<th scope="col">Phone number</th>
-									<th scope="col">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -126,8 +125,6 @@
 									<td><%= d.getSpecialization() %></td>
 									<td><%= d.getEmail() %></td>
 									<td><%= d.getPhno() %></td>
-									<td><a href="#" class="btn btn-sm btn-primary">Edit</a>
-										<a href="#" class="btn btn-sm btn-danger">Delete</a></td>
 								</tr>	
 								<% } %>
 							

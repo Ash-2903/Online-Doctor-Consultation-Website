@@ -4,7 +4,7 @@
   <div class="container-fluid">
   
     <a class="navbar-brand" href="../index.jsp" style="color:black">
-    		<i class="fa-solid fa-user-doctor fa-beat" style="color:black"></i>
+    		<i class="fa-solid fa-stethoscope fa-beat" style="color:black"></i>
     		Cure Quest
     </a>
     
@@ -17,15 +17,11 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" style="color:black">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.jsp" style="color:black">Home</a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link active" href="doctor.jsp" style="color:black">Doctor</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link active" href="#" style="color:black">Patient</a>
         </li>
         
        </ul>

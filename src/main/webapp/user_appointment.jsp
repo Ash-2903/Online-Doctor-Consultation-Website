@@ -173,22 +173,18 @@
 				<div class="p-5">
 					<div class="card paint-card" style="width: 18rem;">
 					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="card-link">Card link</a>
-					    <a href="#" class="card-link">Another link</a>
+					    <h5 class="card-title">Patient Reviews</h5>
+					    <h6 class="card-subtitle mb-2 text-muted">We take patient feedback seriously.</h6>
+					    <p class="card-text">The recommendation system considers positive patient reviews and testimonials to guide you toward doctors who consistently deliver exceptional care.</p>
 					  </div>
 					 </div>
 				 </div>
 				 <div class="p-5">
 					 <div class="card paint-card" style="width: 18rem;">
 					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="card-link">Card link</a>
-					    <a href="#" class="card-link">Another link</a>
+					    <h5 class="card-title">Continuous Improvement</h5>
+					    <h6 class="card-subtitle mb-2 text-muted">Recommending best doctor</h6>
+					    <p class="card-text">Our recommendation system evolves with time, incorporating user feedback and data to refine the matching process and enhance your experience.</p>
 					  </div>
 					 </div>
 				 </div> 

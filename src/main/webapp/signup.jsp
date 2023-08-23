@@ -66,7 +66,7 @@
 		                  
 		                  <!-- ======================= Age - Drop down ============================== -->
 		                  
-		                  <div class="d-flex flex-row align-items-center mb-4">
+		                  <!-- <div class="d-flex flex-row align-items-center mb-4">
 		                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
 		                    <div class="form-outline flex-fill mb-0">
 		
@@ -84,7 +84,7 @@
 				                <label class="form-label" for="form3Example3c">Age</label>
 		
 		              		</div>
-		                  </div>
+		                  </div> -->
 		                  
 		                  <!-- ======================= Password ============================== -->
 		

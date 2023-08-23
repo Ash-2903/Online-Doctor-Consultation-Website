@@ -7,7 +7,7 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.jsp">
-    		<i class="fa-solid fa-user-doctor fa-beat"></i>
+    		<i class="fa-solid fa-stethoscope fa-beat"></i>
     		Cure Quest
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
