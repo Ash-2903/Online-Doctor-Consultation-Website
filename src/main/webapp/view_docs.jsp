@@ -16,9 +16,30 @@
 <title>View Doctors</title>
 <%@include file="components/common_css.jsp"%>
 <style type="text/css">
-.paint-card {
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-}
+	.paint-card {
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+	}
+	.rating {
+	        display: inline-block;
+	        direction: rtl; /* Set the text direction to right-to-left */
+	    }
+	
+	    /* Hide the radio inputs */
+	    .rating input[type="radio"] {
+	        display: none;
+	    }
+	
+	    /* Style for the star icons */
+	    .rating label {
+	        font-size: 1rem;
+	        color: #ccc;
+	        cursor: pointer;
+	    }
+	
+	    /* Style for selected star icons */
+	    .rating input[type="radio"]:checked ~ label {
+	        color: #f39c12;
+	    }
 </style>
 </head>
 <body style="background-color : #F5F5F5">	
@@ -33,7 +54,7 @@
 	<%@include file="components/navbar.jsp"%>
 	
 	
-	<div class="modal" tabindex="-1" role="dialog">
+	<!-- <div class="modal" tabindex="-1" role="dialog">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -51,7 +72,7 @@
 	      </div>
 	    </div>
 	  </div>
-	</div>
+	</div> -->
 	
 	
 	
@@ -106,17 +127,38 @@
 									<td>
 										
 										<form action="sumbitResponse" method="post">
+										
 											<input type="hidden" name="userId" value="${userObject.id}">
 											<input type="hidden" name="docId" value="<%=d.getFullName()%>">
-											<select class="form-control input-group mx-auto" name="rating" required>
+											
+											 <div id="rating<%=d.getId()%>" class="rating">
+							                    <input type="radio" id="star5_<%=d.getId()%>" name="rating" value="5">
+							                    <label for="star5_<%=d.getId()%>"><i class="fas fa-star"></i></label>
+							                    
+							                    <input type="radio" id="star4_<%=d.getId() %>" name="rating" value="4">
+							                    <label for="star4_<%=d.getId()%>"><i class="fas fa-star"></i></label>
+							                    
+							                    <input type="radio" id="star3_<%=d.getId() %>" name="rating" value="3">
+							                    <label for="star3_<%=d.getId()%>"><i class="fas fa-star"></i></label>
+							                    
+							                    <input type="radio" id="star2_<%=d.getId() %>" name="rating" value="2">
+							                    <label for="star2_<%=d.getId()%>"><i class="fas fa-star"></i></label>
+							                    
+							                    <input type="radio" id="star1_<%=d.getId() %>" name="rating" value="1">
+							                    <label for="star1_<%=d.getId()%>"><i class="fas fa-star"></i></label>
+							                </div>
+							                
+											<%-- <%@include file="components/rating.jsp" %> --%>
+											<!-- <select class="form-control input-group mx-auto" name="rating" required>
 												<option value="">rate</option>
 												<option value="5">5</option>
 												<option value="4">4</option>
 												<option value="3">3</option>
 												<option value="2">2</option>
 												<option value="1">1</option>
-											</select>
-											<button type="submit" class="btn btn-primary">Submit</button>
+											</select> -->
+											<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+											<button type="submit" class="btn"><i class="fa-solid fa-check" style="color: #050505;"></i></button>
 										</form>
 									</td>
 								</tr>

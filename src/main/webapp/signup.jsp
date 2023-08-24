@@ -14,6 +14,16 @@
 
 <body style="background-color : #F5F5F5">
 
+	<%
+		if(session.getAttribute("doctorObject")!=null) {
+			response.sendRedirect("doctor/index.jsp");
+		} if ( session.getAttribute("adminObject")!=null ) {
+			response.sendRedirect("admin/index.jsp");
+		} if ( session.getAttribute("userObject")!=null ) {
+			response.sendRedirect("index.jsp");
+		}
+	%>
+
 	<%@include file="components/navbar.jsp" %>
 	<br><br>
 	

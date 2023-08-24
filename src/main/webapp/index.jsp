@@ -41,12 +41,17 @@
   </head>
   
   
-  <body style="background-color : #F5F5F5">
-  
- 
-    
+  <body style="background-color : #F5F5F5; padding-top: 0px;padding-bottom: 0px"> 
     
     <!-- ======================= FIXED NAVIGATION BAR ===========================  -->
+    
+	<%
+    	if(session.getAttribute("adminObject")!=null) {
+    		response.sendRedirect("admin/index.jsp");
+    	} else if(session.getAttribute("doctorObject")!=null) {
+    		response.sendRedirect("doctor/index.jsp");
+    	}
+    %>
 	
 	<%@include file="components/navbar.jsp" %> 
 	

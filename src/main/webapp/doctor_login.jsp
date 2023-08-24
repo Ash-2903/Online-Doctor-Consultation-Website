@@ -24,11 +24,19 @@
 
 </head>
 <body style="background-color : #F5F5F5">
-	<%@include file="components/navbar.jsp" %>
 
-	
-	
-	
+
+	<%
+		if(session.getAttribute("doctorObject")!=null) {
+			response.sendRedirect("doctor/index.jsp");
+		} if ( session.getAttribute("adminObject")!=null ) {
+			response.sendRedirect("admin/index.jsp");
+		} if ( session.getAttribute("userObject")!=null ) {
+			response.sendRedirect("index.jsp");
+		}
+	%>
+
+	<%@include file="components/navbar.jsp" %>	
 	
 <section class="vh-100" >
   <div class="container py-5 h-100">
