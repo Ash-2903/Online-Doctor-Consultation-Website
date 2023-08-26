@@ -31,19 +31,27 @@ public class UserRegister extends HttpServlet {
 			UserDao dao = new UserDao(DBConnect.getConn()); // establishing connection to SQL
 
 			HttpSession session = req.getSession();
+			
 
 			boolean f = dao.register(u); // adding data elements to user_details table of the database
 
 			
 			  if (f) { 
-				  session.setAttribute("successMsg", "Registered successfully"); 
-				  resp.sendRedirect("signup.jsp");
+				  
+				  User u_l = dao.login(email,password);
+					
+					if(u_l != null) {
+						session.setAttribute("userObject", u_l);
+						resp.sendRedirect("index.jsp");
+					} else {
+						session.setAttribute("errorMsg", "Invalid e-mail or passowrd");
+						resp.sendRedirect("signup.jsp");
+					}
+					
 			  } else { 
 				  session.setAttribute("errorMsg", "Oops !! Something went wrong"); 
 				  resp.sendRedirect("signup.jsp");
 			  }
-			  
-			 
 
 		} catch (Exception e) {
 			e.printStackTrace();

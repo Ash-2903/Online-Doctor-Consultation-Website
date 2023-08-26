@@ -9,7 +9,6 @@
 <title>User Register</title>
 <%@include file="components/common_css.jsp" %>
 
-
 </head>
 
 <body style="background-color : #F5F5F5">

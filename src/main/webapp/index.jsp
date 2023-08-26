@@ -53,7 +53,11 @@
     	}
     %>
 	
-	<%@include file="components/navbar.jsp" %> 
+	<div>
+		<%@include file="components/navbar.jsp" %> 
+	</div>
+	
+	
 	
 	
 	

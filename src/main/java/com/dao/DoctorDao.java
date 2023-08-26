@@ -126,6 +126,26 @@ public class DoctorDao {
 		return i;
 	}
 	
+	public int getDoctorIdByName(String docName) {
+		int id = 0;
+		
+		try {
+			
+			String sql = "select id from doctor_details where full_name = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, docName);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return id;
+	}
+	
 
 	
 }

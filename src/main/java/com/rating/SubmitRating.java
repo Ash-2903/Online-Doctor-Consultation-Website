@@ -24,8 +24,13 @@ public class SubmitRating extends HttpServlet {
 		
 		int userId = Integer.parseInt(req.getParameter("userId")); 
 		String docName = req.getParameter("docId");
-		int rating = Integer.parseInt(req.getParameter("rating"));
+		
+		
+		if(req.getParameter("rating") == null) {
+			resp.sendRedirect("viewPrescription.jsp");
+		} else {
 
+		 int rating = Integer.parseInt(req.getParameter("rating"));
 		 RatingDao rd = new RatingDao(DBConnect.getConn());
 		 String sp_id = rd.getSpecilaistId(docName);
 	     Rating rt = new Rating(rating, userId, docName, sp_id);
@@ -35,11 +40,12 @@ public class SubmitRating extends HttpServlet {
 		
 		if(f) {
 			session.setAttribute("succMsg", "Thank you for your response");
-			resp.sendRedirect("view_docs.jsp");
+			resp.sendRedirect("viewPrescription.jsp");
 		} else {
-			resp.sendRedirect("view_docs.jsp");
+			resp.sendRedirect("viewPrescription.jsp");
 		}
 		
+		}
 	}
 
 	
