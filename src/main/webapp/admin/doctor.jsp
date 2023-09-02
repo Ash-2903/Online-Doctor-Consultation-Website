@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+    if (session.getAttribute("adminObject") == null) {
+        response.sendRedirect("../admin_login.jsp");
+        return;
+    }
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page isELIgnored="false" %>
 <%@page import="com.dao.SpecialistDao"%>
@@ -8,6 +14,7 @@
 <%@page import="com.entity.Specialist"%>
 <%@page import="com.entity.Doctor"%>
 <%@page import="java.util.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>

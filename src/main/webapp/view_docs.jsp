@@ -1,4 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%
+	if (session.getAttribute("userObject") == null) {
+		response.sendRedirect("user_login.jsp");
+	    return;
+	}
+%>
 <%@ page isELIgnored="false" %>
 
 <%@page import="com.entity.Doctor"%>
@@ -105,7 +111,6 @@ function filterTable() {
 									<td class="specialist-cell"><%=d.getSpecialization()%></td>
 									<td><%=d.getEmail()%></td>
 									<td><%=d.getPhno()%></td>
-									
 									
 								</tr>
 								<%

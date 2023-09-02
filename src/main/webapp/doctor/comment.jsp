@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+    Doctor d = (Doctor) session.getAttribute("doctorObject");
+    if (d == null) {
+        response.sendRedirect("../doctor_login.jsp");
+        return;
+    }
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page isELIgnored="false" %>
 <%@page import="com.db.DBConnect" %>
 <%@page import="com.entity.Appointment" %>
 <%@page import="com.dao.AppointmentDao" %>
 <%@page import="java.util.List" %>
+<%@page import="com.entity.Doctor" %>
 <%@page import="com.dao.SpecialistDao" %>
 <!DOCTYPE html>
 <html>

@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%
+    Doctor d = (Doctor) session.getAttribute("doctorObject");
+    if (d == null) {
+        response.sendRedirect("../doctor_login.jsp");
+        return;
+    }
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page isELIgnored="false" %>
 <%@page import="com.db.DBConnect" %>
@@ -59,12 +67,17 @@
 	    <div class="card paint-card p-5">
 	      <div class="card-body text-center">
 	      	<i class="fa-solid fa-user fa-2xl"></i><hr>
-	      	<%
+	      	<%-- <%
 	      		Doctor d = (Doctor) session.getAttribute("doctorObject");
-	      		AppointmentDao aDao = new AppointmentDao(DBConnect.getConn());
-	        %>
+		      	if (d == null) {
+		            response.sendRedirect("../doctor_login.jsp");
+		        } else {
+		            AppointmentDao aDao = new AppointmentDao(DBConnect.getConn());
+	        %> --%>
+	        <% AppointmentDao aDao = new AppointmentDao(DBConnect.getConn()); %>
 	        <h5 class="card-title">Appointments</h5>
 	        <p class="card-text"><%= aDao.countAppointmentsByDocId(d.getFullName()) %></p>
+	        <%-- <% } %> --%>
 	      </div>
 	    </div>
 	  </div>
@@ -77,3 +90,5 @@
 	
 </body>
 </html>
+
+<%-- <% } %> --%>

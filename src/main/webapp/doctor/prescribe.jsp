@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+    Doctor d = (Doctor) session.getAttribute("doctorObject");
+    if (d == null) {
+        response.sendRedirect("../doctor_login.jsp");
+        return;
+    }
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page isELIgnored = "false" %>
 <%@page import="java.io.IOException" %>

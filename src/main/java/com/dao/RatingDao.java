@@ -33,7 +33,6 @@ public class RatingDao {
 	        }
 	        
 	        String st2 = "Select id from specialist where sp_name = ?";
-	        System.out.println(sp);
 	        PreparedStatement ps2 = conn.prepareStatement(st2);
 	        ps2.setString(1, sp);
 	        ResultSet rs2 = ps2.executeQuery();
@@ -89,8 +88,6 @@ public class RatingDao {
 			ResultSet rs = ps.executeQuery();
 		
 			if (rs.next()) {
-				System.out.println("id : " + rs.getInt(1));	
-				System.out.println(rs.getString(2));
 				f = true;
 			}
 			
