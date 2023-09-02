@@ -1,44 +1,49 @@
-
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%
+	User u = (User) session.getAttribute("userObject");
+	Doctor d = (Doctor) session.getAttribute("doctorObject");
+    if (u == null && d == null) {
+        response.sendRedirect("../user_login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Video Consultation</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='Styles.css'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Permanent+Marker&display=swap" rel="stylesheet">
+<meta charset="ISO-8859-1">
+<title>Video Conference</title>
+<%@page import="com.entity.User"%>
+<%@page import="com.entity.Doctor"%>
+	<%@include file="../components/common_css.jsp" %>
+	 <link rel='stylesheet' type='text/css' media='screen' href='Styles.css'>
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <main>
+ <main>
 
-        <div class="navbars">
-            <nav>
-                <img src="./images/logo.png" class="logo" />
-                <ul>
-                    <li><img src="./images/live.png" /></li>
-                    <li><img src="./images/video.png" /></li>
-                    <li><img src="./images/message.png" /></li>
-                    <li><img src="./images/notification.png" /></li>
-                    <li><img src="./images/users.png" /></li>
-                    <li><img src="./images/setting.png" /></li>
-                </ul>
+       <div class="navbars" style="background-color: #B0DAFF">
+            <nav class="text-center" >
+            	<div class=" mt-4 mb-3">
+	                <a class="navbar-brand navbar-light" href="../index.jsp" style="color:black">
+	    				<i class="fa-solid fa-stethoscope fa-beat fa-2xl"></i>	
+	    			</a>
+    			</div>
+    			<p style="color:black">Cure Quest</p>
             </nav>
         </div>
-        
-
 
 
         <!-- <div id="users-list"></div> -->
 
-        <h1 id="site-title">&nbsp</h1>
+        <h1 id="site-title">&nbsp;</h1>
         <div id="join-wrapper">
-            <input id="username" type="text" placeholder="Enter your name..." />
-            <button id="join-btn">Join Stream</button>
+            <input type="hidden" id="username" type="text" placeholder="Enter your name..." />
+            <button id="join-btn" style="color:black">Join Stream</button>
         </div>
         <div id="user-streams" ></div>
         
@@ -47,17 +52,18 @@
         <!-- Wrapper for join button -->
         <div class="contarols" id="footer">
             <div class="icon-wrapper">
-                <img class="control-icon" id="camera-btn" src="./images/video.png" />
+                <img class="control-icon" id="camera-btn" src="../images/cam.png"/>
+                <!-- <a href="https://www.flaticon.com/free-icons/cam" title="cam icons">Cam icons created by icon_small - Flaticon</a> -->
                 <p>Cam</p>
             </div>
 
             <div class="icon-wrapper">
-                <img class="control-icon call-icon" id="leave-btn" src="./images/endcall.png" />
+                <img class="control-icon call-icon" id="leave-btn" src="../images/leave.png" />
                 <p>Leave</p>
             </div>
 
             <div class="icon-wrapper">
-                <img class="control-icon" id="mic-btn" src="./images/mic.png" />
+                <img class="control-icon" id="mic-btn" src="../images/mic.png" />
                 <p>Mic</p>
             </div>
         </div>
@@ -74,7 +80,7 @@ let client = AgoraRTC.createClient({mode:'rtc', codec:"vp8"})
 //#2 connecting to agora
 let config = {
     appid:'09e4dc3d8ffa84332b7b6bc96c668dc6c',
-    token:'007eJxTYJhlwcJZxfakfJ/w198rvaYdUG0qEI1+r90Sf2LvTx4VvgYFBstUk5Rk4xSLtLRECxNjY6Mk8ySzpGRLs2QzM4uUZLPk/pMfUxoCGRneiW1kZWSAQBCfiyE/LyczL1UhJT+ZgQEA9hwiHg==',
+    token:'007eJxTYFBc62q35rCeQtMOgT+rD706sEpw+uuN/tfv3N3Je1pJ8NACBQbLVJOUZOMUi7S0RAsTY2OjJPMks6RkS7NkMzOLlGSz5K0Wn1MaAhkZpnQ9ZGJkgEAQn4shPy8nMy9VISU/mYEBAOFyJNY=',
     uid:null,
     channel:'online doc',
 }
@@ -261,6 +267,6 @@ let handleUserLeft = (user) => {
 
 
 	</script>
-	
+
 </body>
 </html>

@@ -73,7 +73,7 @@
 							<c:remove var="succMsg" scope="session" />
 						</c:if>
 						<c:if test="${not empty rejectMsg}">
-							<div class="fs-3 text-center text-danger" role="alert">${rejectMsg}</div>
+							<div class="fs-5 text-center text-danger" role="alert">${rejectMsg}</div>
 							<c:remove var="rejectMsg" scope="session" />
 						</c:if>
 						<c:if test="${not empty p_succMsg}">
@@ -138,7 +138,7 @@
 										</form>
 											
 									<% 	} else { %>
-											<a href="../video/video.html?id=<%=a.getId()%>" class = "btn btn-success">Start Conversation</a>
+											<a href="../video/video.jsp?id=<%=a.getId()%>" class = "btn btn-success">Start Conversation</a>
 											<a href="prescribe.jsp?id=<%=a.getId()%>&uid=<%=uid%>" class = "btn btn-primary">Prescribe</a>
 									<% } %>
 

@@ -115,7 +115,7 @@
 									<% } else { %>
 											<p class="text-success">Accepted</p>
 											<p><%= rs.getString(12)%></p>
-											<a href="video/video.html?id=<%=rs.getString(1)%>" class = "btn btn-success">Start Conversation</a>
+											<a href="video/video.jsp?id=<%=rs.getString(1)%>" class = "btn btn-success">Start Conversation</a>
 									<% } %>
 									
 									</td>
