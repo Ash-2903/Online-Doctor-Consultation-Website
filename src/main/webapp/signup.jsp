@@ -42,6 +42,11 @@
 		                	<c:remove var="successMsg" scope="session"/> 
 		                </c:if>
 		                
+		                <c:if test="${not empty passwordMsg }">
+		                	<p class = "text-center text-danger fs-5">${passwordMsg}</p>
+		                	<c:remove var="passwordMsg" scope="session"/> 
+		                </c:if>
+		                
 		                <c:if test="${not empty errorMsg }">
 		                	<p class = "text-center text-danger fs-3">${errorMsg}</p>
 		                	<c:remove var="errorMsg" scope="session"/>
@@ -100,7 +105,7 @@
 		                  <div class="d-flex flex-row align-items-center mb-4">
 		                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 		                    <div class="form-outline flex-fill mb-0">
-		                      <input type="password" id="form3Example4c" class="form-control" name= "password" />
+		                      <input type="password" id="form3Example4c" class="form-control" name="password" />
 		                      <label class="form-label" for="form3Example4c">Password</label>
 		                    </div>
 		                  </div>
@@ -108,7 +113,7 @@
 		                  <div class="d-flex flex-row align-items-center mb-4">
 		                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
 		                    <div class="form-outline flex-fill mb-0">
-		                      <input type="password" id="form3Example4cd" class="form-control" />
+		                      <input type="password" id="form3Example4cd" class="form-control" name="Rpassword"/>
 		                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
 		                    </div>
 		                  </div>

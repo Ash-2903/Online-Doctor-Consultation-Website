@@ -76,6 +76,48 @@ public class RatingDao {
 		return f;
 	}
 	
+	public boolean checkRating(int uid, String doc) {
+		
+		boolean f = false;
+		
+		try {
+			
+			String sql = "select * from rating where doc_name = ? and user_id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, doc);
+			ps.setInt(2, uid);
+			ResultSet rs = ps.executeQuery();
+		
+			if (rs.next()) {
+				System.out.println("id : " + rs.getInt(1));	
+				System.out.println(rs.getString(2));
+				f = true;
+			}
+			
+		} catch (Exception e ) {
+			e.printStackTrace();		}
+		
+		return f;
+	}
+	
+	public int getRating(int uid, String doc) {
+		
+		try {
+			String sql = "select * from rating where doc_name = ? and user_id = ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, doc);
+			ps.setInt(2, uid);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(4);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+		
+	}
+	
 	
 	
 }

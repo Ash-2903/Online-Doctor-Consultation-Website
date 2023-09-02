@@ -13,6 +13,7 @@
 <%@page import="com.dao.PrescrptionDao" %>
 <%@page import="com.dao.SpecialistDao" %>
 <%@page import="com.dao.DoctorDao" %>
+<%@page import="com.dao.RatingDao" %>
 <%@page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -127,6 +128,16 @@
 			<input type="hidden" name="userId" value="${userObject.id}">
 			<input type="hidden" name="docId" value="<%=ap.getDoctor()%>">
 			
+			
+			
+			<%
+				RatingDao rdao = new RatingDao(DBConnect.getConn());
+				boolean flag = rdao.checkRating(ap.getUserId(), ap.getDoctor());
+				/* System.out.println("bool value from jsp : " + flag); */
+				if(!flag) {
+			
+			%>
+			
 			<label>Rate you doctor : </label>
 												
 			<div id="rating<%=d_id%>" class="rating">
@@ -150,14 +161,35 @@
 			
 			<button type="submit" class="btn"><i class="fa-solid fa-check" style="color: #050505;"></i></button>
 		</form>												 					
-											
 
-	  </div>
+	  <% 			
+			
+		} else {
+			int rating = rdao.getRating(ap.getUserId(), ap.getDoctor());
+			
+	%>
+	
+		<label>Your Rating : </label>
 
-	<% 		}
+			<% for(int i=0;i<rating;i++) { %>
+			<form class="text-center">
+				<div id="rating" class="rating text-center mt-2">
+					<label for="star"><i class="fas fa-star text-warning"></i></label>
+				</div>
+				<% } %>	
+			</form>
+			
+	<%  } %>
+	
+	</div>
+
+	
+	<% 	
+		  }
 		}
 	%>
-
+	
+	
 
 
 

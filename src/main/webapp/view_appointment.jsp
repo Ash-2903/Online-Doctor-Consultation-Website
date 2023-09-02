@@ -87,9 +87,9 @@
 								%>
 								<tr>
 									<% if(rs.getString(13)== null) { %>
-										<td>
-											<p class="fs-7 text-center text-danger">Sorry ! Our doctors are not available at this date and time</p>
-											<p class="fs-7 text-center text-danger">Please make another appointment with different time and date</p>
+										<td class="p-1">
+											<p class="fs-7 text-danger">Sorry ! Our doctors are not available at this date and time</p>
+											<p class="fs-7 text-danger">Please make another appointment with different time and date</p>
 										</td>
 									<% } else { %>
 										<td><%=rs.getString(13)%></td>

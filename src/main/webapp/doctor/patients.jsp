@@ -120,7 +120,7 @@
 									
 									<% if("Pending".equals(a.getStatus())) { %>
 										<form action="../rejectPatient" method="post">
-											<a href="comment.jsp?id=<%=a.getId()%>" class = "btn btn-success">Comment</a>
+											<a href="comment.jsp?id=<%=a.getId()%>" class = "btn btn-success">Accept</a>
 											<button type="submit" class="btn btn-danger">Reject</button>
 											<input type="hidden" name="appId" value="<%=a.getId()%>">
 											<input type="hidden" name="specialist" value="<%=a.getSpId()%>">
