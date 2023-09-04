@@ -97,21 +97,21 @@
           <div class="carousel-caption">
             <h1>Expert Care, Anywhere You Are</h1>
             <p>Distance is no longer a barrier to exceptional medical expertise.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <p><a class="btn btn-lg btn-primary" href="static_pages/info1.jsp">Learn About Specialists</a></p>
           </div>
         </div>
       </div>
       
-     <!--  <div class="carousel-item">
-        <img class="bgImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM6os8g4HiEofCaSaFMGMBbwTob03XYun_tQ&usqp=CAU" />
+     <div class="carousel-item">
+        <img class="bgImg" src="https://www.lingualinx.com/hubfs/hospital-translations.jpg" />
         <div class="container">
           <div class="carousel-caption text-end">
             <h1>Confidentiality and Compassion Combined</h1>
             <p>Prioritizing a confidential and empathetic environment for consultations.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse documentation</a></p>
+            <p><a class="btn btn-lg btn-primary" href="static_pages/info2.jsp">Know About First-Aid</a></p>
           </div>
         </div>
-      </div> -->
+      </div> 
       
     </div>
     
@@ -219,6 +219,8 @@
   
 </main>
 <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
 
     </body>
 </html>

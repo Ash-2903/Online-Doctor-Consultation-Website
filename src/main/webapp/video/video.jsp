@@ -80,7 +80,7 @@ let client = AgoraRTC.createClient({mode:'rtc', codec:"vp8"})
 //#2 connecting to agora
 let config = {
     appid:'09e4dc3d8ffa84332b7b6bc96c668dc6c',
-    token:'007eJxTYFBc62q35rCeQtMOgT+rD706sEpw+uuN/tfv3N3Je1pJ8NACBQbLVJOUZOMUi7S0RAsTY2OjJPMks6RkS7NkMzOLlGSz5K0Wn1MaAhkZpnQ9ZGJkgEAQn4shPy8nMy9VISU/mYEBAOFyJNY=',
+    token:'007eJxTYBCUZIipf3x9y8rqC9cMVC/7XN5Zd7lMeVtDj3NcQ0PcNFMFBstUk5Rk4xSLtLRECxNjY6Mk8ySzpGRLs2QzM4uUZLNkhUlfUxoCGRnYo/4wMjJAIIjPxZCfl5OZl6qQkp/MwAAAPMYiTw==',
     uid:null,
     channel:'online doc',
 }
